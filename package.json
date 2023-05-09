@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "start:server": "cross-env NODE_ENV=dev nodemon ./server/server.js",
+    "start:web": "cross-env NODE_ENV=dev nodemon ./web/server.js",
     "start": "node server.js"
   },
   "dependencies": {
