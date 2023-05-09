@@ -125,3 +125,16 @@ GO
 
 ALTER TABLE [BookingExtras] ADD FOREIGN KEY ([extrasId]) REFERENCES [Extras] ([id])
 GO
+
+
+CREATE OR ALTER VIEW [CinemaComplexView] AS
+	SELECT
+		 com.id AS complexId,
+		 com.name AS complexName,
+		 cin.id AS CinemaId,
+		 cin.name AS CinemaName
+	FROM dbo.Complex com
+	JOIN dbo.CinemaComplex cc
+		ON com.id = cc.cinemaId
+	JOIN dbo.Cinema cin
+		ON cin.id = cc.cinemaId
