@@ -5,10 +5,14 @@ const path = require('path');
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.WEB_PORT;
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.sendFile(path.join(__dirname, '/home.html'));
+});
+
+app.get('/movie', function(req, res) {
+  res.sendFile(path.join(__dirname, '/movieDetails.html'));
 });
 
 app.listen(port);

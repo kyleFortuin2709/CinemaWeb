@@ -1,8 +1,9 @@
 {
-  "name": "CinemaWeb",
+  "name": "cinemaweb",
   "version": "0.1.0",
   "scripts": {
-    "start:server": "cross-env NODE_ENV=dev nodemon server.js"
+    "start:server": "cross-env NODE_ENV=dev nodemon ./server/server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
@@ -10,7 +11,11 @@
     "pg": "^8.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20",
-    "cross-env": "^7.0.3"
-  }
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
+  },
+  "description": "- `npm run-script start:server`\r ### Notes\r - There is no need to restart the server if changes is made. With `nodemon` it restarts when the file is saved.",
+  "main": "config.js",
+  "author": "",
+  "license": "ISC"
 }

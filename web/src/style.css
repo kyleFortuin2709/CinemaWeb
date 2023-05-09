@@ -7,3 +7,6 @@ body {
   p {
     color: red;
   }
+  #mybutton{
+    cursor: pointer;
+    }
