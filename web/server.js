@@ -15,5 +15,9 @@ app.get('/movie', function(req, res) {
   res.sendFile(path.join(__dirname, '/movieDetails.html'));
 });
 
+app.use((req, res, error, next) => {
+
+})
+
 app.listen(port);
 console.log(`${process.env.SERVER_NAME} Server started at http://localhost:${port}`);
