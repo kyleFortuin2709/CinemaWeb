@@ -11,82 +11,82 @@ USE [CinemaBooking]
 GO
 
 CREATE TABLE [Complex] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [name] nvarchar(255)
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [name] NVARCHAR(255) NOT NULL,
 )
 GO
 
 CREATE TABLE [Cinema] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [name] nvarchar(255)
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [name] NVARCHAR(255) NOT NULL
 )
 GO
 
 CREATE TABLE [CinemaComplex] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [complexId] integer,
-  [cinemaId] integer
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [complexId] INT NOT NULL,
+  [cinemaId] INT NOT NULL
 )
 GO
 
 CREATE TABLE [Seat] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [cinemaId] integer,
-  [seatRow] nvarchar(255),
-  [seatNumber] integer
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [cinemaId] INT NOT NULL,
+  [seatRow] NVARCHAR(4) NOT NULL,
+  [seatNumber] INT NOT NULL
 )
 GO
 
 CREATE TABLE [Movie] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [name] nvarchar(255)
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [name] NVARCHAR(255) NOT NULL
 )
 GO
 
 CREATE TABLE [MovieSeat] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [booked] bit,
-  [seatId] uniqueidentifier,
-  [ticketId] uniqueidentifier,
-  [cinemaMovieId] uniqueidentifier
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [booked] BIT NOT NULL,
+  [seatId] INT NOT NULL,
+  [ticketId] INT NOT NULL,
+  [cinemaMovieId] INT NOT NULL
 )
 GO
 
 CREATE TABLE [CinemaMovie] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [cinemaId] UNIQUEIDENTIFIER,
-  [movieId] UNIQUEIDENTIFIER,
-  [date] date,
-  [time] time
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [cinemaId] INT NOT NULL,
+  [movieId] INT NOT NULL,
+  [date] DATE NOT NULL,
+  [time] TIME NOT NULL
 )
 GO
 
 CREATE TABLE [Ticket] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [cinemaMovieId] UNIQUEIDENTIFIER,
-  [bookingId] UNIQUEIDENTIFIER,
-  [price] decimal(15,2)
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [cinemaMovieId] INT NOT NULL,
+  [bookingId] INT NOT NULL,
+  [price] DECIMAL(15,2) NOT NULL
 )
 GO
 
 CREATE TABLE [Extras] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [name] nvarchar(255),
-  [price] decimal(15,2)
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [name] NVARCHAR(255) NOT NULL,
+  [price] DECIMAL(15,2) NOT NULL
 )
 GO
 
 CREATE TABLE [Booking] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [email] nvarchar(255),
-  [refNo] uniqueidentifier default NEWID()
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [email] NVARCHAR(255) NOT NULL,
+  [refNo] UNIQUEIDENTIFIER DEFAULT NEWID()
 )
 GO
 
 CREATE TABLE [BookingExtras] (
-  [id] uniqueidentifier PRIMARY KEY default NEWID(),
-  [bookingId] integer,
-  [extrasId] integer
+  [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+  [bookingId] INT NOT NULL,
+  [extrasId] INT NOT NULL
 )
 GO
 
