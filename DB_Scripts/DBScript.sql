@@ -135,6 +135,6 @@ CREATE OR ALTER VIEW [CinemaComplexView] AS
 		 cin.name AS CinemaName
 	FROM dbo.Complex com
 	JOIN dbo.CinemaComplex cc
-		ON com.id = cc.cinemaId
+		ON com.id = cc.complexId
 	JOIN dbo.Cinema cin
 		ON cin.id = cc.cinemaId
