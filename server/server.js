@@ -8,7 +8,11 @@ const app = express();
 const port = process.env.SERVER_PORT;
 
 //create endpoint
-app.get('/', function(req, res) {
+
+//3. endpoint for home data -- sends data as response
+app.get('/getMovies', function(req, res) {
+    res.send("Hello world")
+
 });
 
 app.get('/movie', function(req, res) {
