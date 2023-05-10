@@ -1,16 +1,8 @@
-
-const {
-  adapter
-} = require('?');
-
-export const getHomeInfo = () => {
-  // call server url to /home
-  return adapter.get('url', params) // this is Initial idea for adapter
-}
+const axios = require('axios')
 
 //2. function called on get home -- Makes call to server to get data
-export const getMovies = () => {
-  axios({
+const getMovies = () => {
+  return axios({
     method: 'get',
     url: 'http://localhost:8080/getMovies'
   }).then(apiResponse => {
@@ -38,4 +30,6 @@ const postBooking = () => {
     .catch((err) => console.log(err));
 };
 
-export function getMovies()
+module.exports = {
+  getMovies
+}
