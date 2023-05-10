@@ -8,6 +8,6 @@ const validate = (req, res, next) => {
   next()
 }
 
-homeRouter.get('./', validate, (req, res, next) => {
+homeRouter.get('/', validate, (req, res, next) => {
   next(new Error())
 })
