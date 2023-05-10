@@ -9,7 +9,7 @@ const validate = (req, res, next) => {
   next()
 }
 
-homeRouter.get('/home', validate, (req, res, next) => {
+homeRouter.get('/', validate, (req, res, next) => {
   res.sendFile(path.join(__dirname, '/home.html'));
 })
 
