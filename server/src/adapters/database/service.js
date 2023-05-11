@@ -1,23 +1,28 @@
-import { Pool, PoolClient } from 'pg';
-import { loadDBSecrets } from '../../secrets';
-const pool = new Pool();
+const sql = require('mssql');
 
-async function getClient(tryCount){
-    try {
-        const client = await pool.connect();
-        return client;
-    } catch (err) {
-        if (tryCount >= 3) {
-            throw err;
-        }
-        await loadDBSecrets();
-        return getClient(tryCount + 1);
+const {
+  secrets
+}= require('../../../secrets');
+
+const dbConfig = secrets.loadDbSecrets()
+
+const connectDB = async (tryCount) => {
+  try {
+    await sql.connect(dbConfig)
+      
+  } catch (error) {
+    if (tryCount >= 3) {
+      console.log('Error: ', error);
+      throw err;
     }
+    connectDB(tryCount + 1);
+  }
 }
 
-export async function query(statement, values = []) {
-    const client = await getClient(0);
-    const result = await client.query(statement, values);
-    client.release();
-    return result;
+module.exports = {
+  query: async (statement) => {
+    await connectDB(0);
+    const request = new sql.Request();
+    return request.query(statement)
+  }
 }
