@@ -7,6 +7,12 @@ const app = express();
 
 const port = process.env.SERVER_PORT;
 
+const {
+    homeRouter
+} = require('./src/modules/home/router');
+
+
+app.get('/', homeRouter);
 //create endpoint
 
 //3. endpoint for home data -- sends data as response
