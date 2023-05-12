@@ -6,7 +6,6 @@ const {
   cinemas
 } = require('../../adapters/database');
 
-
 const homeRouter = Router();
 
 
