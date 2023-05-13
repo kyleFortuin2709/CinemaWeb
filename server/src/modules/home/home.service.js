@@ -2,8 +2,13 @@ const {
   tmdbMovies
 } = require('../../adapters/theMovieDB');
 const {
-  movies
+  movies,
+  shows
 } = require('../../adapters/database')
+
+const getDateArray = (date) => {
+  return date.toLocaleDateString('en-CA').split('T');
+};
 
 const getMovieDetails = (data) => {
   return tmdbMovies.getMovieDetails(data.apiMovieId)
@@ -15,10 +20,6 @@ const getMovieDetails = (data) => {
     });
 };
 
-const getDate = (date) => {
-  return date.toLocaleDateString('en-CA').split('T')[0];
-}
-
 const mapMovieDetail = (data) => {
   return {
     backdropPath: data.backdrop_path,
@@ -28,10 +29,10 @@ const mapMovieDetail = (data) => {
     posterPath: data.poster_path,
     overview: data.overview,
     apiMovieId: data.apiMovieId,
-    startDate: getDate(data.startDate),
-    endDate: getDate(data.endDate)
-  }
-}
+    startDate: getDateArray(data.startDate)[0],
+    endDate: getDateArray(data.endDate)[0]
+  };
+};
 
 const settleMovieDetailsPromises= (movieDetailsPromises) => {
   return Promise.allSettled(movieDetailsPromises)
@@ -42,6 +43,34 @@ const settleMovieDetailsPromises= (movieDetailsPromises) => {
         };
       });
     });
+};
+
+const getGenres = (nowShowingData, comingSoonData) => {
+  const nowShowingDataGenres = mapGenres(nowShowingData);
+  const comingSoonDataGenres = mapGenres(comingSoonData);
+  return removeDuplicates([nowShowingDataGenres, comingSoonDataGenres]);
+};
+
+const mapGenres = (movies) => {
+  return movies.map(movie => {
+    return movie.genres;
+  })
+  .flatMap(data => data)
+  .map(genres => {
+    return genres.name
+  });
+};
+
+const removeDuplicates = (genreData) => {
+  const genres = genreData.flatMap(data => data);
+  return [...new Set(genres)];
+};
+
+const mapShows = (showsData) => {
+  return showsData.map(show => {
+    const date = new Date(show.startDateTime)
+    return `${date.getHours() - 2}:${date.getMinutes()}`
+  })
 }
 
 module.exports = {
@@ -72,31 +101,15 @@ module.exports = {
   getComingSoonMovies: () => {
     return movies.getComingSoonMovies();
   },
-  getFilters: (nowShowingData, comingSoonData) => {
+  getShows: () => {
+    return shows.getShows();
+  },
+  getFilters: (nowShowingData, comingSoonData, showsData) => {
     const genres = getGenres(nowShowingData, comingSoonData);
+    const shows = mapShows(showsData);
     return {
-      genres
-    }
+      genres,
+      shows
+    };
   }
-}
-
-const getGenres = (nowShowingData, comingSoonData) => {
-  const nowShowingDataGenres = mapGenres(nowShowingData);
-  const comingSoonDataGenres = mapGenres(comingSoonData);
-  return removeDuplicates([nowShowingDataGenres, comingSoonDataGenres]);
-}
-
-const mapGenres = (movies) => {
-  return movies.map(movie => {
-    return movie.genres
-  })
-  .flatMap(data => data)
-  .map(genres => {
-    return genres.name
-  })
-}
-
-const removeDuplicates = (genreData) => {
-  const genres = genreData.flatMap(data => data);
-  return [...new Set(genres)]
-}
+};

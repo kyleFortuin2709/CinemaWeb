@@ -141,8 +141,9 @@ CREATE OR ALTER VIEW [CinemaComplexView] AS
 	SELECT
 		 com.id AS complexId,
 		 com.name AS complexName,
-		 cin.id AS CinemaId,
-		 cin.name AS CinemaName
+		 cin.id AS cinemaId,
+		 cin.name AS cinemaName,
+		 cc.id as cinemaComplexId
 	FROM dbo.Complex com
 	JOIN dbo.CinemaComplex cc
 		ON com.id = cc.complexId
@@ -150,9 +151,22 @@ CREATE OR ALTER VIEW [CinemaComplexView] AS
 		ON cin.id = cc.cinemaId
 GO
 
-
---use master
---go
-
---drop database [CinemaBooking]
---go
+CREATE OR ALTER VIEW [CinemaMovieView] AS
+	SELECT
+		cm.cinemaComplexId,
+		ccv.complexId,
+		ccv.complexName,
+		ccv.cinemaId,
+		ccv.cinemaName,
+		cm.movieId,
+		m.name,
+		cm.showId,
+		s.startDateTime,
+		s.endDateTime	
+	FROM CinemaMovie cm
+	LEFT JOIN Movie m
+		ON m.id = cm.movieId
+	LEFT JOIN Shows s
+		ON s.id = cm.showId
+	JOIN CinemaComplexView ccv
+		ON ccv.cinemaComplexId = cm.cinemaComplexId

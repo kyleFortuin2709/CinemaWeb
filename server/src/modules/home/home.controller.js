@@ -4,7 +4,8 @@ const {
    getNowShowingDetails,
    getNowShowingMovies,
    getComingSoonMovies,
-   getFilters
+   getFilters,
+   getShows
 } = require('./home.service');
 
 module.exports.homeController = {
@@ -17,13 +18,15 @@ module.exports.homeController = {
       return Promise.all([
         getBannerDetails(bannerShows),
         getNowShowingDetails(nowShowing),
-        getComingSoonDetails(comingSoon)
+        getComingSoonDetails(comingSoon),
+        getShows()
       ]).then(([
         bannerData,
         nowShowingData,
-        comingSoonData
+        comingSoonData,
+        shows
       ])=> {
-        const filters = getFilters(nowShowingData, comingSoonData)
+        const filters = getFilters(nowShowingData, comingSoonData, shows)
         return {
           filters,
           bannerData,

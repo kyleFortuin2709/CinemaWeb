@@ -4,8 +4,12 @@ const {
 const {
   movies
 } = require('./modules/movies/movies');
+const {
+  shows
+} = require('./modules/shows/shows');
 
 module.exports = {
   cinemas,
-  movies
+  movies,
+  shows
 }
