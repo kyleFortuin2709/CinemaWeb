@@ -3,7 +3,7 @@ const {
 } = require('../service');
 
 
-module.exports.movies = {
+module.exports.tmdbMovies = {
   getMovieDetails: (movieId) => {
     return apiCall({path: movieId})
   }

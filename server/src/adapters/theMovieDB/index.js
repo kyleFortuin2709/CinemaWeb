@@ -1,7 +1,7 @@
 const { images } = require('./images/images');
-const { movies } = require('./movies/movies');
+const { tmdbMovies } = require('./movies/movies');
 
 module.exports = {
   images,
-  movies
+  tmdbMovies
 }

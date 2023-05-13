@@ -3,16 +3,16 @@ const {
 } = require('express');
 
 const {
-  cinemas
-} = require('../../adapters/database');
+  homeController
+} = require('./home.controller');
 
 const homeRouter = Router();
 
 
 homeRouter.get('/', (req, res, next) => {
-  return cinemas.getAllCinemas()
-    .then(result => {
-      res.json(result.recordsets[0]);
+  return homeController.getHomePageDetails()
+    .then(results => {
+      return res.status(200).json(results)
     })
 })
 
