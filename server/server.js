@@ -11,12 +11,14 @@ const port = process.env.SERVER_PORT;
 
 const {
     homeRouter,
+    moviesRouter
 } = require('./src/modules/routes');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/', homeRouter);
+app.use('/movie', moviesRouter);
 
 
 app.listen(port);

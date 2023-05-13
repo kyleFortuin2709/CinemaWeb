@@ -21,4 +21,4 @@ app.use(express.static(__dirname + '/resources'));
 app.use('/', homeRouter)
 
 app.listen(port);
-console.log(`${process.env.SERVER_NAME} Server started at http://localhost:${port}`);
+console.log(`${process.env.SERVER_NAME} Web Server started at http://localhost:${port}`);

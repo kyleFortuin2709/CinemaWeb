@@ -1,13 +1,20 @@
 const {
   Router
 } = require('express');
+const {
+  moviesController
+} = require('./movies.controller');
 
-const homeRouter = Router();
+const moviesRouter = Router();
 
-const validate = (req, res, next) => {
-  next()
-}
-
-homeRouter.get('/', validate, (req, res, next) => {
-  next(new Error())
+moviesRouter.get('/:id/details',(req, res, next) => {
+  return moviesController.getMovieDetails(req.params.id)
+    .then(result => {
+      res.status(200).json(result)
+    })
 })
+
+module.exports = {
+  moviesRouter
+};
+
