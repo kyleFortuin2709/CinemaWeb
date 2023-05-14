@@ -27,8 +27,8 @@ const mapMovieDetail = (data) => {
     title: data.title,
     runtime: data.runtime,
     posterPath: data.poster_path,
-    overview: data.overview,
     apiMovieId: data.apiMovieId,
+    movieId: data.movieId,
     startDate: getDateArray(data.startDate)[0],
     endDate: getDateArray(data.endDate)[0]
   };

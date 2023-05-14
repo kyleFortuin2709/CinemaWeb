@@ -13,7 +13,7 @@ const connectDB = async (tryCount) => {
   } catch (error) {
     if (tryCount >= 3) {
       console.log('Error: ', error);
-      throw err;
+      throw error;
     }
     connectDB(tryCount + 1);
   }

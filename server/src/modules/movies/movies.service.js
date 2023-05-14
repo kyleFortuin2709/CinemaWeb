@@ -1,6 +1,9 @@
 const {
   tmdbMovies
 } = require('../../adapters/theMovieDB');
+const {
+  movies
+} = require('../../adapters/database');
 
 
 const mapGenres = (genres) => {
@@ -18,6 +21,9 @@ const formatRunTime = (runtime) => {
 }
 
 module.exports = {
+  getMovie: (movieId) => {
+    return movies.getMovieById(movieId)
+  },
   getMovieDetails: (apiMovieId) => {
     return tmdbMovies.getMovieDetails(apiMovieId)
     .then(result => {
@@ -34,5 +40,6 @@ module.exports = {
         overview: result.overview
       }
     });
+
   }
 };

@@ -1,9 +1,13 @@
 const {
-  getMovieDetails
+  getMovieDetails,
+  getMovie
 } = require('./movies.service');
 
 module.exports.moviesController = {
-  getMovieDetails: (apiMovieId) => {
-    return getMovieDetails(apiMovieId)
+  getMovieDetails: (movieId) => {
+    return getMovie(movieId)
+      .then(movie => {
+        return getMovieDetails(movie.apiMovieId)
+      })
   }
 }

@@ -50,7 +50,6 @@ CREATE TABLE [MovieSeat] (
   [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
   [showId] int not null,
   [seatId] INT NOT NULL,
-  [ticketId] INT NOT NULL,
   [cinemaMovieId] INT NOT NULL
 )
 GO
@@ -67,7 +66,8 @@ CREATE TABLE [Ticket] (
   [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
   [cinemaMovieId] INT NOT NULL,
   [bookingId] INT NOT NULL,
-  [price] DECIMAL(15,2) NOT NULL
+  [price] DECIMAL(15,2) NOT NULL,
+  [movieSeatId] INT NOT NUll
 )
 GO
 
@@ -110,9 +110,6 @@ GO
 ALTER TABLE [MovieSeat] ADD FOREIGN KEY ([cinemaMovieId]) REFERENCES [CinemaMovie] ([id])
 GO
 
-ALTER TABLE [MovieSeat] ADD FOREIGN KEY ([ticketId]) REFERENCES [Ticket] ([id])
-GO
-
 ALTER TABLE [CinemaMovie] ADD FOREIGN KEY ([cinemaComplexId]) REFERENCES [CinemaComplex] ([id])
 GO
 
@@ -126,6 +123,9 @@ ALTER TABLE [Ticket] ADD FOREIGN KEY ([cinemaMovieId]) REFERENCES [CinemaMovie] 
 GO
 
 ALTER TABLE [Ticket] ADD FOREIGN KEY ([bookingId]) REFERENCES [Booking] ([id])
+GO
+
+ALTER TABLE [Ticket] ADD FOREIGN KEY ([movieSeatId]) REFERENCES [MovieSeat] ([id])
 GO
 
 ALTER TABLE [BookingExtras] ADD FOREIGN KEY ([bookingId]) REFERENCES [Booking] ([id])
