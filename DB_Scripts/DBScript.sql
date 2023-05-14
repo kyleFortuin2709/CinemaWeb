@@ -35,7 +35,6 @@ CREATE TABLE [Seat] (
   [seatNumber] INT NOT NULL
 )
 GO
-select * from [Seat]
 
 CREATE TABLE [Movie] (
   [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -48,7 +47,8 @@ GO
 
 CREATE TABLE [MovieSeat] (
   [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-  [showId] int not null,
+  [showId] Int NOT NULL,
+  [booked] BIT,
   [seatId] INT NOT NULL,
   [cinemaMovieId] INT NOT NULL
 )
