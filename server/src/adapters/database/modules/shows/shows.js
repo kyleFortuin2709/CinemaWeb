@@ -4,6 +4,7 @@ module.exports.shows = {
   getShows: () => {
     const statement = `
       SELECT
+        "id",
         "startDateTime",
         "endDateTime"
       FROM shows

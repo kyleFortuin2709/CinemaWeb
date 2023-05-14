@@ -153,6 +153,7 @@ GO
 
 CREATE OR ALTER VIEW [CinemaMovieView] AS
 	SELECT
+		cm.id AS cinemaMovieId,
 		cm.cinemaComplexId,
 		ccv.complexId,
 		ccv.complexName,
