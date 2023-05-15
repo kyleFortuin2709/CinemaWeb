@@ -13,11 +13,15 @@ const {
 const {
   cinemaMovieView
 } = require('./modules/cinemaMovieView/cinemaMovieView');
+const {
+  booking
+} = require('./modules/booking/booking');
 
 module.exports = {
   cinemas,
   movies,
   shows,
   movieSeat,
-  cinemaMovieView
+  cinemaMovieView,
+  booking
 }

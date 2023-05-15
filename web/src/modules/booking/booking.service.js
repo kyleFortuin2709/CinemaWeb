@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 //2. function called on get home -- Makes call to server to get data
-const getMovies = () => {
+const getBooking = () => {
   return axios({
     method: 'get',
     url: 'http://localhost:8080/getMovies'

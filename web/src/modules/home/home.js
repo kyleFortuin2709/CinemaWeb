@@ -1,3 +1,1 @@
-function butClick(){
-        console.log("Hello!")
-    }
+//take data -> process the list into html

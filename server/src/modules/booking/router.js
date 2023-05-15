@@ -14,6 +14,13 @@ bookingRouter.get('/movie/:id', (req, res, next) => {
     });
 });
 
+bookingRouter.post('/booking', (req, res, next) => {
+  return bookingController.addBooking(req.body)
+    .then(result => {
+      return res.status(200).json(result)
+    })
+});
+
 module.exports = {
   bookingRouter
 };

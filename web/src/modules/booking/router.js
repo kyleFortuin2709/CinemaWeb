@@ -5,16 +5,17 @@ const path = require('path');
 
 const bookingRouter = Router();
 
-const validate = (req, res, next) => {
-  next()
-}
+bookingRouter.get('/', (req, res, next) => {
+  console.log(path.join(__dirname, '/booking.html'));
+  return res.render(path.join(__dirname, '/booking.html'), {welcome: "Hello!"});
+});
 
-bookingRouter.get('/', validate, (req, res, next) => {
-  // return getMovies()
-  //   .then(data => {
-  //     return res.render(path.join(__dirname, '/home.html'), {welcome: data})
-  //   });
-  return res.render(path.join(__dirname, '/bookingRouter.html'))
+
+bookingRouter.get('/postBooking', (req, res) => {
+  return postBooking()
+    .then(data => {
+      return true
+    })
 });
 
 module.exports = {

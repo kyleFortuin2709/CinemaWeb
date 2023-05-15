@@ -18,5 +18,8 @@ module.exports.bookingController = {
           return mapBooking(cinemaMoviesDetails, movie, shows);
         });
     });
+  },
+  addBooking: (data) => {
+    
   }
 };

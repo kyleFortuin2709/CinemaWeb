@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CinemaAppWebServer",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/web/server.js"
+    },
+    {
+      "name": "CinemaAppServer",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/server/server.js",
+      "runtimeExecutable": "node",
+      "env": {
+        "PORT": "8080"
+      }
+    }
+  ]
+}

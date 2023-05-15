@@ -2,7 +2,8 @@ const {
   movies,
   movieSeat,
   cinemaMovieView,
-  shows
+  shows,
+  booking
 } = require('../../adapters/database');
 
 const getMovieSeats = (cinemaMovie) => {
@@ -44,6 +45,13 @@ const mapCinemaMovieDetails = (cinemaMovieDetails) => {
 }
 
 module.exports = {
+  //      <!-- movie poster -->
+      // <!-- date -->
+      // <!-- time -->
+      // <!-- number of tickets -->
+      // <!-- 3D glasses -->
+      // <!-- seat control -->
+      // <!-- extras -->
   getMovie: (movieId) => {
     return movies.getMovieById(movieId)
   },
@@ -68,4 +76,5 @@ module.exports = {
       cinemaMovieDetails : mapCinemaMovieDetails(cinemaMovieDetails)
     }
   },
+
 }
