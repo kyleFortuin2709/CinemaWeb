@@ -20,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/', homeRouter);
 app.use('/movie', moviesRouter);
-app.use('/getMovie/', moviesRouter);
 app.use('/booking', bookingRouter)
 
 

@@ -4,7 +4,7 @@ const axios = require('axios')
 const getMovies = () => {
   return axios({
     method: 'get',
-    url: 'http://localhost:8080/getMovies'
+    url: 'http://localhost:8080/'
   }).then(apiResponse => {
      // process the response
      const data = apiResponse.data
