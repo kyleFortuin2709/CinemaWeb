@@ -24,7 +24,7 @@ const requestListener = async function (req, res) {
         res.end(contents);
       });
       break;
-    case '/movie':
+    case '/movie': // details page
       await movieDetailsRouter(req, res)
       .then(contents => {
         res.setHeader("Content-Type", "text/html");
@@ -40,6 +40,12 @@ const requestListener = async function (req, res) {
         res.end(contents);
       });
       break
+    case '/snacks': // work in progress
+      res.writeHead(404);
+      res.end(JSON.stringify({error:"Resource not found"}));
+    case '/confirmation': // work in progress
+      res.writeHead(404);
+      res.end(JSON.stringify({error:"Resource not found"}));
     default:
       res.writeHead(404);
       res.end(JSON.stringify({error:"Resource not found"}));
