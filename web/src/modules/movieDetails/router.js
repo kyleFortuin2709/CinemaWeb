@@ -2,9 +2,9 @@
 //   Router
 // } = require('express');
 // const path = require('path');
-const {
-  movieDetails
-} = require('./movieDetails')
+// const {
+//   movieDetails
+// } = require('./movieDetails')
 
 // const movieDetailsRouter = Router();
 
@@ -21,8 +21,9 @@ const fs = require('fs').promises;
 
 module.exports = {
   movieDetailsRouter: async (req, res) => {
-    const movieId = 1
-    const data =await movieDetails.getDetails(movieId)
+    const queryParams = req.queryParams
+    const movieId = queryParams.id;
+    // const data = await movieDetails.getDetails(movieId)
     return fs.readFile(__dirname + '/movieDetails.html')
   }
 }
