@@ -8,6 +8,9 @@ const {
 const {
   movieDetailsRouter
 } = require('./src/modules/movieDetails/router');
+const {
+  bookingRouter
+} = require('./src/modules/booking/router');
 
 const port = process.env.WEB_PORT;
 
@@ -23,6 +26,14 @@ const requestListener = async function (req, res) {
       break;
     case '/movie':
       await movieDetailsRouter(req, res)
+      .then(contents => {
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(200);
+        res.end(contents);
+      });
+      break
+    case '/booking':
+      await bookingRouter(req, res)
       .then(contents => {
         res.setHeader("Content-Type", "text/html");
         res.writeHead(200);
