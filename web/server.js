@@ -41,7 +41,6 @@ const requestListener = async function (req, res) {
   req.queryParams = queryParams;
 
   if (req.method === "GET" && (url.startsWith("/resources") || url.startsWith("/src/modules"))) {
-    console.log('yayayayay');
     serveStaticFile(res, url);
     return; 
   }
@@ -58,7 +57,6 @@ const requestListener = async function (req, res) {
       await movieDetailsRouter(req, res)
       .then(contents => {
         res.setHeader("Content-Type", "text/html");
-        // res.setHeader("Content-Type", "text/css")
         res.writeHead(200);
         res.end(contents);
       });
