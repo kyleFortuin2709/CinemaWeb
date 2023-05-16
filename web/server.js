@@ -1,35 +1,41 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require("body-parser");
+const http = require("http");
 
 require('dotenv').config({path: `./dotenv/.env.${process.env.NODE_ENV}`});
 
 const {
   homeRouter
 } = require('./src/modules/home/router');
-
 const {
   movieDetailsRouter
 } = require('./src/modules/movieDetails/router');
 
-const {
-  bookingRouter
-} = require('./src/modules/booking/router');
-
 const port = process.env.WEB_PORT;
-const app = express();
 
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
+const requestListener = async function (req, res) {
+  switch (req.url) {
+    case '/':
+      await homeRouter(req, res)
+      .then(contents => {
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(200);
+        res.end(contents);
+      });
+      break;
+    case '/movie':
+      await movieDetailsRouter(req, res)
+      .then(contents => {
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(200);
+        res.end(contents);
+      });
+      break
+    default:
+      res.writeHead(404);
+      res.end(JSON.stringify({error:"Resource not found"}));
+  }
+};
 
-app.set("view options", {layout: false});
-app.engine('html', require('ejs').renderFile);
-app.use(express.static(__dirname + '/resources'));
-app.use(express.static(__dirname + '/src/modules'))
-
-app.use('/', homeRouter)
-app.use('/getMovie/:movieId', movieDetailsRouter)
-app.use("/booking", bookingRouter)
-
-app.listen(port);
-console.log(`${process.env.SERVER_NAME} Web Server started at http://localhost:${port}`);
+const server = http.createServer(requestListener);
+server.listen(port, () => {
+    console.log(`${process.env.SERVER_NAME} Web Server started at http://localhost:${port}`);
+});

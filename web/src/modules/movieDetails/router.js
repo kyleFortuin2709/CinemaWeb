@@ -1,24 +1,28 @@
+// const {
+//   Router
+// } = require('express');
+// const path = require('path');
 const {
-  Router
-} = require('express');
-const path = require('path');
-const {
-  getMovies
-} = require('./movieDetails.service')
+  movieDetails
+} = require('./movieDetails')
 
-const movieDetailsRouter = Router();
+// const movieDetailsRouter = Router();
 
-const validate = (req, res, next) => {
-  next()
-}
+// movieDetailsRouter.get('/:id/details', (req, res, next) => {
+//   res.render(path.join(__dirname, '/movieDetails.html'))
+//   const movieId = req.params.id;
+//   return movieDetails.getDetails(movieId)
+//   .then(data => {
+//       // return res.render(path.join(__dirname, '/movieDetails.html'))
+//     })
+// });
 
-movieDetailsRouter.get('/getMovie', validate, (req, res, next) => {
-  return getMovie()
-    .then(data => {
-      res.send("movieID is set to " + req.params.movieId);
-    });
-});
+const fs = require('fs').promises;
 
 module.exports = {
-  movieDetailsRouter
+  movieDetailsRouter: async (req, res) => {
+    const movieId = 1
+    const data =await movieDetails.getDetails(movieId)
+    return fs.readFile(__dirname + '/movieDetails.html')
+  }
 }
