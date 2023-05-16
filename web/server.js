@@ -89,7 +89,6 @@ server.listen(port, () => {
 
 function serveStaticFile(res, url)  { 
   const filePath = path.join(__dirname, url);
-  console.log('filePath: ',filePath);
   const contentType = getContentType(filePath); 
   fs.readFile(filePath, (err, data) => { 
     if (err) {
