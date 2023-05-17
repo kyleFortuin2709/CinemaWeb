@@ -54,11 +54,8 @@ const requestListener = async function (req, res) {
       });
       break;
     case '/movie': // details page
-      
-      // break
       const movieId = new URLSearchParams(req.url).get('movieId');
       if (movieId) {
-      // Route for specific movie with movieId
       await movieDetailsRouter(req, res, movieId)
         .then(contents => {
           res.setHeader("Content-Type", "text/html");

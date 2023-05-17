@@ -454,7 +454,7 @@ const imagePaths = [
 		listItem.classList.add('col')
 		listItem.addEventListener('click', function() {
 			// Route to /movie.html with movieId as a query parameter
-			const url = `/src/modules/movieDetails/movieDetails.html?movieId=${movieId}`;
+			const url = `/movie?movieId=${movieId}`;
 			window.location.href = url;
 		  });
 
