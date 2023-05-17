@@ -421,33 +421,77 @@ let data = {
 	]
 }
 
-fetch(`http://localhost:8080/`, {
-  method: 'GET',
-  headers: {"Content-Type": "application/json"}
-})
-.then(response => response.json())
-.then(data => {
-//   console.log('Success:', data);
-//   var poster = document.getElementById("poster")
-//   console.log('Poster:', poster)
-//   poster.src = `https://image.tmdb.org/t/p/w500`+ data.posterPath
-const itemsWithKey = data.reduce((result, item) => {
-      result.push({ id: item.id, name: item.name });
-      console.log(result)
-    return result;
-  }, []);
-mainSection = document.getElementById("movie-cards")
-  for (item in itemsWithKey){
-    const element = document.createElement("li");
-    const image = document.createElement('img');
-    image.src = getPathUrl(item.posterPath);
-    element.appendChild(image);
-    mainSection.appendChild(element);
+const imagePaths = [
+	'https://image.tmdb.org/t/p/w500/9NXAlFEE7WDssbXSMgdacsUD58Y.jpg',
+	// Add more image paths as needed
+  ];
+  
+  function generateImages() {
+	const imageList = document.getElementById('imageList');
+	
+	// Loop through the image paths array
+	imagePaths.forEach((path) => {
+	  formatData();
+	});
   }
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+  
+  // Call the function to generate the images
+  generateImages();
+
+  function formatData() {
+	data.bannerData.forEach((item)=>{
+		const apiMovieId = item.apiMovieId;
+		const movieId = item.movieId;
+		const posterPath = item.posterPath;
+
+		const listItem = document.createElement('li');
+		const image = document.createElement('img');
+		image.src = getPathUrl(posterPath);
+		image.id = movieId
+		listItem.appendChild(image);
+		imageList.appendChild(listItem);
+
+		listItem.classList.add('col')
+
+		console.log("apiMovieId:", apiMovieId);
+		console.log("movieId:", movieId);
+		console.log("posterPath:", posterPath);
+	  });
+  };
+  
+
+
+// fetch(`http://localhost:8080/`, {
+//   method: 'GET',
+//   headers: {"Content-Type": "application/json"}
+// })
+// .then(response => response.json())
+// .then(data => {
+// //   console.log('Success:', data);
+// //   var poster = document.getElementById("poster")
+// //   console.log('Poster:', poster)
+// //   poster.src = `https://image.tmdb.org/t/p/w500`+ data.posterPath
+// .catch((error) => {
+//   console.error('Error:', error);
+// }
+// const element = document.getElementById("col1-2");
+// const image = document.createElement("img");
+// image.src = "https://image.tmdb.org/t/p/w500/9NXAlFEE7WDssbXSMgdacsUD58Y.jpg";
+// element.appendChild(image);
+// // const itemsWithKey = data.reduce((result, item) => {
+// 	result.push({ id: item.id, posterPath: item.posterPath });
+// 	console.log(result)
+//   return result;
+// }, []);
+// mainSection = document.getElementById("movie-cards")
+// for (item in itemsWithKey){
+//   const element = document.createElement("li");
+//   const image = document.createElement('img');
+//   image.src = getPathUrl(item.posterPath);
+//   element.className("movieList")
+//   element.appendChild(image);
+//   mainSection.appendChild(element);
+// }
 
 function getPathUrl(path) {
     return "https://image.tmdb.org/t/p/w500" + path

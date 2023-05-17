@@ -31,7 +31,6 @@ body {
       padding-inline: 10px;
   }
   
-  /* Container for flexboxes */
   section {
     display: -webkit-flex;
     display: flex;
@@ -56,69 +55,6 @@ body {
     width: 100%;
   } 
 
-  .SquarePrimarybutton{
-    width: 83px;
-    height: 29px; 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    line-height: 29px;
-    color: var(--textColour);
-    flex:content;
-    order: 1;
-    flex-grow: 0;
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
-    cursor: pointer;
-  }
-
-  .SquareSecondarybutton{
-    width: 83px;
-    height: 29px; 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-    color: var(--textColour);
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    background-color: transparent;
-  }
-
-
-  .RoundPrimarybutton{
-    width: 83px;
-    height: 29px; 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-    color: var(--textColour);
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    background-color: transparent;
-  }
-
-  .RoundSecondarybutton{
-    width: 83px;
-    height: 29px; 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-    color: var(--textColour);
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    background-color: transparent;
-  }
   nav a {
     text-decoration: none;
     display: inline;
