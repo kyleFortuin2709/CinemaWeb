@@ -54,13 +54,26 @@ const requestListener = async function (req, res) {
       });
       break;
     case '/movie': // details page
+      
+      // break
+      const movieId = new URLSearchParams(req.url).get('movieId');
+      if (movieId) {
+      // Route for specific movie with movieId
+      await movieDetailsRouter(req, res, movieId)
+        .then(contents => {
+          res.setHeader("Content-Type", "text/html");
+          res.writeHead(200);
+          res.end(contents);
+        });
+    } else {
       await movieDetailsRouter(req, res)
-      .then(contents => {
-        res.setHeader("Content-Type", "text/html");
-        res.writeHead(200);
-        res.end(contents);
+        .then(contents => {
+          res.setHeader("Content-Type", "text/html");
+          res.writeHead(200);
+          res.end(contents);
       });
-      break
+    }
+    break;
     case '/booking':
       await bookingRouter(req, res)
       .then(contents => {

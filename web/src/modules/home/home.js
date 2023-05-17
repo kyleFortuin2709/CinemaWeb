@@ -452,6 +452,11 @@ const imagePaths = [
 		imageList.appendChild(listItem);
 
 		listItem.classList.add('col')
+		listItem.addEventListener('click', function() {
+			// Route to /movie.html with movieId as a query parameter
+			const url = `/src/modules/movieDetails/movieDetails.html?movieId=${movieId}`;
+			window.location.href = url;
+		  });
 
 		console.log("apiMovieId:", apiMovieId);
 		console.log("movieId:", movieId);
