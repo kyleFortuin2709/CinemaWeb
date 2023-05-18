@@ -439,8 +439,7 @@ const imagePaths = [
   generateImages();
 
   function formatData() {
-	data.nowShowingData.forEach((item)=>{
-		const apiMovieId = item.apiMovieId;
+	data.bannerData.forEach((item)=>{
 		const movieId = item.movieId;
 		const posterPath = item.posterPath;
 
@@ -451,14 +450,13 @@ const imagePaths = [
 		listItem.appendChild(image);
 		imageList.appendChild(listItem);
 
-		listItem.classList.add('col')
+		listItem.classList.add('col');
 		listItem.addEventListener('click', function() {
 			// Route to /movie.html with movieId as a query parameter
 			const url = `/movie?movieId=${movieId}`;
 			window.location.href = url;
 		  });
 
-		console.log("apiMovieId:", apiMovieId);
 		console.log("movieId:", movieId);
 		console.log("posterPath:", posterPath);
 	  });
