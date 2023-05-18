@@ -1,0 +1,52 @@
+.date-picker {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .date-picker li {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent;
+  }
+  
+  .date-picker li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .date-picker li.selected {
+    background-color: #ffc107;
+  }
+
+  .time-picker {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .time-picker li {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent;
+  }
+  
+  .time-picker li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .time-picker li.selected {
+    background-color: #ffc107;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #counterValue {
+    margin: 0 10px;
+    font-size: 18px;
+  }

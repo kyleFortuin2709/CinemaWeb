@@ -4,6 +4,7 @@
   <head>
     <title>CinemaApp</title>
     <link rel="stylesheet" href="/resources/style.css">
+    <link rel="stylesheet" href="/src/modules/booking/booking.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -19,13 +20,36 @@
     </ul>
     </nav>
     <section id="booking">
-      <p id="test"></p>
       <!-- movie poster -->
       <!-- date -->
+      <article>
+      <label for="date-picker">Select a Date:</label>
+      <ul class="date-picker">
+        <li onclick="selectDate('2023-05-19')">May 19, 2023</li>
+        <li onclick="selectDate('2023-05-20')">May 20, 2023</li>
+        <li onclick="selectDate('2023-05-21')">May 21, 2023</li>
+      </ul>
+    </article>
       <!-- time -->
+      <article>
+      <label for="time-picker">Select a Time:</label>
+      <ul class="time-picker" id="timePicker">
+        <!-- code generated dynamically -->
+      </ul>
+    </article>
       <!-- number of tickets -->
+
+      <button onclick="ticketDecrement()">-</button>
+      <span id="ticketCounter">0</span>
+      <button onclick="ticketIncrement()">+</button>
+
       <!-- 3D glasses -->
-      <!-- seat control -->
+      <button onclick="glassesDecrement()">-</button>
+      <span id="glassesCounter">0</span>
+      <button onclick="glassesIncrement()">+</button>
+
+      <!-- seat control --> 
+
       <!-- extras -->
     </section>
   <footer id="footer">
