@@ -18,3 +18,19 @@ const movieId = urlParams.get('movieId');
 
 // Use the movieId as needed
 console.log("movieId:", movieId);
+fetch(`http://localhost:8080/movie/1/details`, {
+  method: 'GET',
+  headers: {"Content-Type": "application/json"}
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+  const poster = document.getElementById("poster")
+  poster.src = `https://image.tmdb.org/t/p/w500`+ data.posterPath
+
+  const title = document.getElementById('movieTitle');
+  title.textContent = data.title;
+})
+.catch((error) => {
+  console.error('Error:', error);
+});

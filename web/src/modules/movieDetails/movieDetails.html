@@ -4,6 +4,7 @@
   <head>
     <title>CinemaApp</title>
     <link rel="stylesheet" href="/resources/style.css">
+    <link rel="stylesheet" href="/src/modules/movieDetails/movieDetails.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -19,18 +20,18 @@
         <li><a href="indextest.html">Home</a></li>
       </ul>
     </nav>
-    <section id="movie-details">
-      <img id="poster" alt="moviePoster">
-      <!-- poster -->
-      <!-- description -->
-      <!-- book now button -->
+    <section class="movieDetails">
+      <section id="movie-details">    
+        <img class="col new_col" id="poster" alt="moviePoster">
+      </section>
+      <section>
+        <h1 id="movieTitle"></h1>
+      </section>
     </section>
     <footer id="footer">
       <p>2023</p>
     </footer>
-    <script type="text/javascript" src="/src/modules/movieDetails/movieDetails.js">
-
-    </script>
+    <script type="text/javascript" src="/src/modules/movieDetails/movieDetails.js"></script>
     
   </body>
 
