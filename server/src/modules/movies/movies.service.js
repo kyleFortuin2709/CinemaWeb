@@ -9,7 +9,7 @@ const {
 const mapGenres = (genres) => {
   return genres.map(genre => {
     return genre.name
-  }).join(' /')
+  }).join(' / ')
 };
 
 const formatRunTime = (runtime) => {

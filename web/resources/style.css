@@ -38,11 +38,11 @@ body {
     color:var(--textColour);
   }
 
-  button {
+  /* button {
     padding-inline: 10px;
     padding-top: 50px;
     position: relative;
-  }
+  } */
 
   footer {
     box-sizing: border-box;
@@ -131,7 +131,7 @@ a:hover {
   align-items: center;
   margin: 10px;
   background-color: transparent;
-  border: 1px solid red;
+  border: 1px solid black;
   text-align: center;
   border-radius: 20px;
   width: 300px;

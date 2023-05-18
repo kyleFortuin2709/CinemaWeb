@@ -439,7 +439,7 @@ const imagePaths = [
   generateImages();
 
   function formatData() {
-	data.bannerData.forEach((item)=>{
+	data.nowShowingData.forEach((item)=>{
 		const apiMovieId = item.apiMovieId;
 		const movieId = item.movieId;
 		const posterPath = item.posterPath;

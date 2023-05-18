@@ -22,10 +22,36 @@
     </nav>
     <section class="movieDetails">
       <section id="movie-details">    
-        <img class="col new_col" id="poster" alt="moviePoster">
+        <img class="col" id="poster" alt="moviePoster">
       </section>
-      <section>
+      <section class="details">
         <h1 id="movieTitle"></h1>
+        <section class="subDetails">
+          <table cellSpacing="10">
+            <tr>
+              <td>Runtime</td>
+              <td>:</td>
+              <td id="runtime"></td>
+            </tr>
+            <tr>
+              <td>Genre</td>
+              <td>:</td>
+              <td id="genres"></td>
+            </tr>
+            <tr>
+              <td>Release</td>
+              <td>:</td>
+              <td id="release"></td>
+            </tr>
+            <tr>
+              <td>Language</td>
+              <td>:</td>
+              <td id="language"></td>
+            </tr>
+          </table>
+        </section>
+        <p class="overview" id="overview"></p>
+        <button class="book" id="bookTicket">Book Tickets</button>
       </section>
     </section>
     <footer id="footer">
