@@ -1,6 +1,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const movieId = urlParams.get('movieId');
+console.log(movieId);
 
 fetch(`http://localhost:8080/movie/${movieId}/details`, {
   method: 'GET',
