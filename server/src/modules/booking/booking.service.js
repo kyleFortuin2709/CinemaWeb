@@ -11,8 +11,6 @@ const {
 } = require('../../adapters/theMovieDB');
 
 const getMovieDetails = (movie) => {
-  console.log(movie);
-  console.log(movie.apiMovieId);
   return tmdbMovies.getMovieDetails(movie.apiMovieId)
   .then(result => {
     return {
@@ -49,8 +47,18 @@ const mapShows = (showsData) => {
 }
 
 const getDates = (movie) => {
-  console.log(movie.startDate);
-  
+  const weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  const startDate = new Date(movie.startDate);
+  const endDate = new Date(movie.endDate);
+  const startDay = startDate.getDate()
+  const endDay = endDate.getDate()
+
+  const dates = []
+  for (let index = startDay; index < endDay + 1; index++) {
+    startDate.setDate(index)
+    dates.push(`${weekday[startDate.getDay()]} ${index}`)
+  };
+  return dates
 }
 
 const mapCinemaMovieDetail = (cinemaMovieDetail) => {
@@ -65,13 +73,6 @@ const mapCinemaMovieDetails = (cinemaMovieDetails) => {
 }
 
 module.exports = {
-  //      <!-- movie poster -->
-      // <!-- date -->
-      // <!-- time -->
-      // <!-- number of tickets -->
-      // <!-- 3D glasses -->
-      // <!-- seat control -->
-      // <!-- extras -->
   getMovie: (movieId) => {
     return movies.getMovieById(movieId)
   },
@@ -89,12 +90,12 @@ module.exports = {
     return shows.getShows();
   },
   mapBooking: async (cinemaMovieDetails, movie, shows) => {
-    getDates(movie)
     const apiMovie = await getMovieDetails(movie)
     return {
       shows: mapShows(shows),
       movie: apiMovie,
-      cinemaMovieDetails : mapCinemaMovieDetails(cinemaMovieDetails)
+      cinemaMovieDetails : mapCinemaMovieDetails(cinemaMovieDetails),
+      dates: getDates(movie)
     }
   },
 
