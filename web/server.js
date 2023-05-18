@@ -16,29 +16,16 @@ const {
 
 const port = process.env.WEB_PORT;
 
-const gerQueryParams = (query) => {
-  let queryObject = {}
-  if (query) {
-    query.split('&').forEach(element => {
-      const elements = element.split('=');
-      queryObject[elements[0]] = elements[1]
-    });
-  }
-  return queryObject;
-}
-
 const processUrl = (url) => {
   const urlArray = url.split('?');
   return {
     url: urlArray[0],
-    queryParams: gerQueryParams(urlArray[1])
   };
 }
 
 const requestListener = async function (req, res) {
   console.log('incoming url: ',req.url);
-  const { url, queryParams  } = processUrl(req.url);
-  req.queryParams = queryParams;
+  const { url  } = processUrl(req.url);
 
   if (req.method === "GET" && (url.startsWith("/resources") || url.startsWith("/src/modules"))) {
     serveStaticFile(res, url);
@@ -53,39 +40,28 @@ const requestListener = async function (req, res) {
         res.end(contents);
       });
       break;
-    case '/movie': // details page
-      const movieId = new URLSearchParams(req.url).get('movieId');
-      if (movieId) {
-      await movieDetailsRouter(req, res, movieId)
-        .then(contents => {
-          res.setHeader("Content-Type", "text/html");
-          res.writeHead(200);
-          res.end(contents);
-        });
-    } else {
+    case '/movie':
       await movieDetailsRouter(req, res)
         .then(contents => {
           res.setHeader("Content-Type", "text/html");
           res.writeHead(200);
           res.end(contents);
-      });
-    }
+        })
+        .catch((error) => {
+          res.writeHead(404);
+          res.end(JSON.stringify({error:error.message}));
+        });
     break;
     case '/booking':
       await bookingRouter(req, res)
       .then(contents => {
         res.setHeader("Content-Type", "text/html");
-        
         res.writeHead(200);
         res.end(contents);
       });
       break
     case '/snacks': // work in progress
-      res.writeHead(404);
-      res.end(JSON.stringify({error:"Resource not found"}));
     case '/confirmation': // work in progress
-      res.writeHead(404);
-      res.end(JSON.stringify({error:"Resource not found"}));
     default:
       res.writeHead(404);
       res.end(JSON.stringify({error:"Resource not found"}));

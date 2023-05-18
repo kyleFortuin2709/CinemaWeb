@@ -1,5 +1,15 @@
-let test = "Hello Marius!"
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const movieId = urlParams.get('movieId');
 
-var testParagraph = document.getElementById("test");
-
-testParagraph.textContent = test;
+fetch(`http://localhost:8080/booking/movie/${movieId}`, {
+  method: 'GET',
+  headers: {"Content-Type": "application/json"}
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});

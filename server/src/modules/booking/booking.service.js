@@ -6,6 +6,26 @@ const {
   booking
 } = require('../../adapters/database');
 
+const {
+  tmdbMovies
+} = require('../../adapters/theMovieDB');
+
+const getMovieDetails = (movie) => {
+  console.log(movie);
+  console.log(movie.apiMovieId);
+  return tmdbMovies.getMovieDetails(movie.apiMovieId)
+  .then(result => {
+    return {
+      movieId: movie.id,
+      apiMovieId: movie.apiMovieId,
+      title: result.title,
+      posterPath: result.poster_path,
+      backdropPath: result.backdrop_path
+    }
+  });
+
+}
+
 const getMovieSeats = (cinemaMovie) => {
   return movieSeat.getMovieSeatsByCinemaMovieId(cinemaMovie.cinemaMovieId)
     .then(seats => {
@@ -68,11 +88,12 @@ module.exports = {
   getShows: () => {
     return shows.getShows();
   },
-  mapBooking: (cinemaMovieDetails, movie, shows) => {
+  mapBooking: async (cinemaMovieDetails, movie, shows) => {
     getDates(movie)
+    const apiMovie = await getMovieDetails(movie)
     return {
       shows: mapShows(shows),
-      movie,
+      movie: apiMovie,
       cinemaMovieDetails : mapCinemaMovieDetails(cinemaMovieDetails)
     }
   },
