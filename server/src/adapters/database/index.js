@@ -16,6 +16,10 @@ const {
 const {
   booking
 } = require('./modules/booking/booking');
+const {
+  extras
+} = require('./modules/extras/extras');
+
 
 module.exports = {
   cinemas,
@@ -23,5 +27,6 @@ module.exports = {
   shows,
   movieSeat,
   cinemaMovieView,
-  booking
-}
+  booking,
+  extras
+};
