@@ -12,7 +12,8 @@ const port = process.env.SERVER_PORT;
 const {
     homeRouter,
     moviesRouter,
-    bookingRouter
+    bookingRouter,
+    extrasRouter
 } = require('./src/modules/routes');
 
 app.use(cors())
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', homeRouter);
 app.use('/movie', moviesRouter);
 app.use('/booking', bookingRouter)
+app.use('/extras', extrasRouter);
 
 
 app.listen(port);

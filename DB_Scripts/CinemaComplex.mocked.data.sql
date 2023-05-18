@@ -86,14 +86,14 @@ INSERT INTO [Movie]
 GO
 
 INSERT INTO [Extras]
-			([name], [price])
+			([name], [price], [imagePath]
 	VALUES
-		('Popcorn', 40.00),
-		('3D Glasses', 35.00),
-		('Smarties', 25.00),
-		('Soft Drink', 25.00),
-		('Whispers Chocolate', 40.00),
-		('Allsorts', 40.00)
+		('Popcorn', 40.00, '/popcorn.jpg'),
+		('3D Glasses', 35.00, '/3dglasses.jpg'),
+		('Smarties', 25.00, '/smarties.jpg'),
+		('Soft Drink', 25.00, '/softdrinks.jpg'),
+		('Whispers Chocolate', 40.00, '/whispers.jpg'),
+		('Allsorts', 40.00, '/allsorts.jpg')
 GO
 
 -- INSERT INTO [Booking]
