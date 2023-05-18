@@ -14,7 +14,7 @@ module.exports.secrets = {
       },
       options: {
         encrypt: false,
-        trustServerCertificate: false // change to true for local dev / self-signed certs
+        trustServerCertificate: true // change to true for local dev / self-signed certs
       }
     }
   }
