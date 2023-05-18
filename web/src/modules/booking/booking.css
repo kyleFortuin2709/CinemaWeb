@@ -1,3 +1,9 @@
+.vertical-section {
+    display: grid;
+    place-items: center; /* Align items vertically and horizontally at the center */
+    height: 100vh; /* Set the height of the section to utilize the full viewport height */
+  }
+
 .date-picker {
     list-style-type: none;
     padding: 0;
@@ -37,7 +43,7 @@
   }
   
   .time-picker li.selected {
-    background-color: #ffc107;
+    background-color: #693f7567;
   }
 
   button {
@@ -49,4 +55,43 @@
   #counterValue {
     margin: 0 10px;
     font-size: 18px;
+  }
+
+  .outer-picker ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:block;
+  }
+  
+  .outer-picker ul li{
+    float:left;
+    margin:10px;
+    height:100px;
+    width:50px; 
+    font-family:'arial';
+    font-size:16px;
+    text-align:center;
+    transition:all 0.5s ease-in-out;
+  }
+  
+  .outer-picker ul li span{
+    display:block;
+    color:#8d8d8d;
+    font-family:'arial';
+    font-size:14px;
+    margin:10px 0;
+  }
+  
+  .outer-picker ul li.active span{
+    display:block;
+    color:red;
+    font-family:'arial';
+    font-size:18px;
+    margin:5px 0;
+  }
+  
+  .outer-picker ul li.active{
+    font-size:26px;
+    width:100px;
   }
