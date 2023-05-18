@@ -13,6 +13,9 @@ const {
 const {
   bookingRouter
 } = require('./src/modules/booking/router');
+const {
+  extrasRouter
+} = require('./src/modules/extras/router');
 
 const port = process.env.WEB_PORT;
 
@@ -60,7 +63,14 @@ const requestListener = async function (req, res) {
         res.end(contents);
       });
       break
-    case '/snacks': // work in progress
+    case '/extras':
+      await extrasRouter(req, res)
+      .then(contents => {
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(200);
+        res.end(contents);
+      });
+      break
     case '/confirmation': // work in progress
     default:
       res.writeHead(404);
