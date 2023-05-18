@@ -1,22 +1,7 @@
-const {
-  Router
-} = require('express');
-const path = require('path');
-
-const extrasRouter = Router();
-
-const validate = (req, res, next) => {
-  next()
-}
-
-extrasRouter.get('/', validate, (req, res, next) => {
-  // return getMovies()
-  //   .then(data => {
-  //     return res.render(path.join(__dirname, '/home.html'), {welcome: data})
-  //   });
-  return res.render(path.join(__dirname, '/home.html'), {welcome: "Hello!"})
-});
+const fs = require('fs').promises;
 
 module.exports = {
-  extrasRouter
-}
+  extrasRouter: async (req, res) => {
+    return fs.readFile(__dirname + '/extras.html')
+  }
+};
