@@ -18,7 +18,7 @@ const {
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(express.json());
 app.use('/', homeRouter);
 app.use('/movie', moviesRouter);
 app.use('/booking', bookingRouter)

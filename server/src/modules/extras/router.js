@@ -13,6 +13,13 @@ extrasRouter.get('/', (req, res, next) => {
     })
 })
 
+extrasRouter.post('/', (req, res, next) => {
+  return extrasController.processExtrasPurchasedItems(req.body)
+    .then(data => {
+      return res.status(200).json(data)
+    });
+})
+
 module.exports = {
   extrasRouter
 };

@@ -96,19 +96,6 @@ INSERT INTO [Extras]
 		('Allsorts', 40.00, '/allsorts.jpg')
 GO
 
--- INSERT INTO [Booking]
--- 			([email])
--- 	VALUES
--- 		('lisan@bbd.co.za')
--- GO
-
--- INSERT INTO [BookingExtras]
--- 			([bookingId], [extrasId])
--- 	VALUES
--- 		(1, 1),
--- 		(1, 2)
--- GO
-
 INSERT INTO [CinemaMovie]
 			([cinemaComplexId], [movieId], [showId])
 	VALUES
@@ -125,13 +112,6 @@ INSERT INTO [CinemaMovie]
 		(5, 11, 1),(5, 11, 2),(5, 11, 3),(5, 11, 4),
 		(6, 12, 1),(6, 12, 2),(6, 12, 3),(6, 12, 4)
 GO
-
-
--- INSERT INTO [Ticket]
--- 			([cinemaMovieId], [bookingId], [price])
--- 		VALUES
--- 		(2, 1, 180.50)
--- GO
 
 INSERT INTO [MovieSeat]
 			([seatId], [showId], [cinemaMovieId])
@@ -518,8 +498,22 @@ INSERT INTO [MovieSeat]
 		(43, 4, 48),(44, 4, 48),(45, 4, 48),(46, 4, 48),(47, 4, 48),(48, 4, 48),(49, 4, 48)
 GO
 
+INSERT INTO [dbo].[Booking]
+           ([email])
+     VALUES
+           ('mariusTestBooking@bookings.co.za')
+GO
 
+UPDATE [dbo].[MovieSeat]
+   SET [booked] = 1
+ WHERE id = 1
+GO
 
-
-
-
+INSERT INTO [dbo].[Ticket]
+           ([cinemaMovieId]
+           ,[bookingId]
+           ,[price]
+           ,[movieSeatId])
+     VALUES
+           (1, 1, 150.00,1)
+GO  
