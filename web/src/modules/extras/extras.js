@@ -66,9 +66,9 @@ fetch(`http://localhost:8080/extras`, {
     amount.id = 'amount_'+ id
   		section.appendChild(amount);
 
-    const removerButton = document.createElement('button')
-    removerButton.classList.add('remove');
-    removerButton.addEventListener('click', () => {
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove');
+    removeButton.addEventListener('click', () => {
       const amountElement = document.getElementById('amount_'+id)
       const amount = amountElement.textContent
       const newAmount = Number(amount) - 1;
@@ -79,8 +79,8 @@ fetch(`http://localhost:8080/extras`, {
     removeImage.src = '/resources/remove.png';
     removeImage.id = 'removeImage'+id
 
-		removerButton.appendChild(removeImage);
-		section.appendChild(removerButton);
+		removeButton.appendChild(removeImage);
+		section.appendChild(removeButton);
     
 		listItem.appendChild(section);
     extraItems.appendChild(listItem);
