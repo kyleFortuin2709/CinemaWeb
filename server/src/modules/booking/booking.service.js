@@ -3,12 +3,30 @@ const {
   movieSeat,
   cinemaMovieView,
   shows,
-  booking
+  booking,
+  seats,
+  tickets
 } = require('../../adapters/database');
 
 const {
   tmdbMovies
 } = require('../../adapters/theMovieDB');
+
+const getSeats = (seatIds) => {
+  return seats.getAllSeats()
+    .then(seatObjects => {
+      const data = seatObjects.map(seat => {
+        return {
+          id: seat.id,
+          seat: seat.seatRow + seat.seatNumber
+        };
+      });
+      return seatIds.map(seatId => {
+        const seatCombined = seatId.toLowerCase();
+        return data.find(seatData => seatData.seat === seatCombined).id;
+      });
+    })
+}
 
 const getMovieDetails = (movie) => {
   return tmdbMovies.getMovieDetails(movie.apiMovieId)
@@ -21,8 +39,7 @@ const getMovieDetails = (movie) => {
       backdropPath: result.backdrop_path
     }
   });
-
-}
+};
 
 const getMovieSeats = (cinemaMovie) => {
   return movieSeat.getMovieSeatsByCinemaMovieId(cinemaMovie.cinemaMovieId)
@@ -98,5 +115,19 @@ module.exports = {
       dates: getDates(movie)
     }
   },
-
-}
+  mapSeats: (seatsIds) => {
+    return getSeats(seatsIds)
+      .then(data => {
+        return data
+      });
+  },
+  createTickets: (data) => {
+    return tickets.createTickets(data);
+  },
+  createBooking: () => {
+    return booking.createBooking();
+  },
+  bookMovieSeats: (data) => {
+    return movieSeat.bookMovieSeats(data);
+  }
+};

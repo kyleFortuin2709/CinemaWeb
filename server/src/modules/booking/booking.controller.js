@@ -3,7 +3,11 @@ const {
   getCinemaMoviesSeats,
   getCinemaMovieDetails,
   mapBooking,
-  getShows
+  getShows,
+  mapSeats,
+  createTickets,
+  createBooking,
+  bookMovieSeats,
 } = require('./booking.service');
 
 module.exports.bookingController = {
@@ -20,6 +24,22 @@ module.exports.bookingController = {
     });
   },
   addBooking: (data) => {
-    
+    return mapSeats(data.seatIds)
+      .then(seats => {
+        data.seatIds = seats
+        return Promise.all([
+          bookMovieSeats(data),
+          createBooking()
+        ]).then(([movieSeats, booking])=> {
+          return createTickets({
+            movieSeats,
+            cinemaMovieId: data.cinemaMovieId,
+            bookingId: booking.id,
+          })
+          .then(() => {
+            return booking;
+          });
+        });
+      });
   }
 };

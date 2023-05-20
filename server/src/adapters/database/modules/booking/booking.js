@@ -26,5 +26,21 @@ module.exports.booking = {
       .then(response => {
         return response.recordset.find(() => true);
       });
+  },
+  createBooking: () => {
+    const statement = `
+      INSERT INTO "Booking"("email")
+      VALUES('mariusTestBooking@bookings.co.za')
+      SELECT
+        "id",
+        "email",
+        "refNo"
+      FROM "Booking"
+      WHERE "id" = SCOPE_IDENTITY()
+    `;
+    return query(statement)
+      .then(response => {
+        return response.recordset.find(() => true);
+      });
   }
 }

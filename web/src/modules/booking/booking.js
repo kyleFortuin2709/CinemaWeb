@@ -209,26 +209,35 @@ function addOnClickDateTime(item) {
 }
 
 function onClickPostBooking() {
-  postBooking()
-	window.location.href = `/confirmation`;
-}
+  return postBooking()
+  .then((data) => {
+    // window.location.href = `/confirmation?id=${data.refNo}`;
+  });
+};
 
 function onClickExtras() {
-  postBooking();
-  window.location.href = `/extras`;
-}
+  return postBooking()
+  .then((data) => {
+    window.location.href = `/extras?id=${data.refNo}`;
+  });
+};
 
 function postBooking() {
-  fetch(`http://localhost:8080/booking`, {
+  return fetch(`http://localhost:8080/booking`, {
     method: 'POST',
-    headers: { "Content-Type": "application/json" },
-    body: {
-      "cinemaMovieId": cinemaMovieId,
-      "movie": movieId,
-      "date": date,
-      "showId": showId,
-      "glasses": glassesCounter,
-      "seatIds": seatIds
-    }
-  });
-}
+    mode: "cors",
+    headers: {
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      cinemaMovieId: cinemaMovieId,
+      movie: movieId,
+      date: date,
+      showId: showId,
+      glasses: glassesCounter,
+      seatIds: seatIds
+    })
+  })
+  .then(response => response.json());
+};
