@@ -5,76 +5,136 @@ const movieId = urlParams.get('movieId');
 let cinemaMovieId;
 let date;
 let showId;
-let glasses;
-let seatIds;
+let seatIds = [];
+let ticketCounter = 0;
+let glassesCounter = 0;
+
 
 fetch(`http://localhost:8080/booking/movie/${movieId}`, {
   method: 'GET',
-  headers: {"Content-Type": "application/json"}
+  headers: { "Content-Type": "application/json" }
 })
-.then(response => response.json())
-.then(data => {
-  console.log(data);
-  const datePicker = document.getElementById("date-picker");
-  const timePicker = document.getElementById("timePicker");
-
-  data.shows.forEach((showTime) => {
-    const timeListItem = document.createElement('li');
-    timeListItem.addEventListener('click', function () {
-      selectTime(this, showTime.time);
-
-		});
-    timeListItem.innerHTML = showTime.time;
-    timePicker.appendChild(timeListItem);
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    generatePage(data);
   })
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-
-function selectDate(selectedItem, date) {
-  const dateItems = document.querySelectorAll('.time-picker li');
-  dateItems.forEach(function(item) {
-    item.classList.remove('selected');
+  .catch((error) => {
+    console.error('Error:', error);
   });
-  selectedItem.classList.add('selected');
-  console.log('Selected time:', time);
-  // Your code for handling the selected time
+
+function generatePage(data) {
+  data.shows.forEach((showTime) => {
+    createTimePicker(showTime.time, showTime.showId)
+  });
+
+  data.dates.forEach((date) => {
+    const values = date.split(" ");
+    createDatePicker(values[0], values[1])
+  });
+
+  const movieSeatContainer = document.getElementById("movieSeatContainer");
+
+  addOnClickMovieSeat(movieSeatContainer)
+
+}
+
+function createDatePicker(val1, val2) {
+  listItem = document.createElement("li");
+  span1 = document.createElement("span");
+  span2 = document.createElement("span");
+  parent = document.getElementById("dates");
+  parent.appendChild(listItem);
+  addOnClickDateTime(listItem);
+  span1.innerHTML = val1;
+  span2.innerHTML = val2;
+  listItem.appendChild(span1);
+  listItem.appendChild(span2);
+}
+
+function createTimePicker(val, id) {
+
+  listItem = document.createElement("li");
+  parent = document.getElementById("times");
+  parent.appendChild(listItem);
+  listItem.id = id;
+  addOnClickDateTime(listItem);
+  listItem.innerHTML = val;
 }
 
 
-function selectTime(selectedItem, time) {
-  const timeItems = document.querySelectorAll('.time-picker li');
-  timeItems.forEach(function(item) {
-    item.classList.remove('selected');
+
+function createTicketCounterButtons(value) {
+  const counterArea = document.getElementById("number-of-tickets");
+
+  const addButton = document.createElement('button');
+  addButton.classList.add('add');
+  addButton.addEventListener('click', () => {
+    ticketIncrement();
   });
-  selectedItem.classList.add('selected');
-  console.log('Selected time:', time);
-  // Your code for handling the selected time
+
+  const addImage = document.createElement('img');
+  addImage.classList.add('selectItem');
+  addImage.src = '/resources/add.png';
+
+  addButton.appendChild(addImage);
+  counterArea.appendChild(addButton);
+
+  const counter = document.createElement("span");
+  counter.innerHTML = value;
+  counter.id = "ticketCounter";
+  counterArea.appendChild(counter);
+
+  const removeButton = document.createElement('button');
+  removeButton.classList.add('remove');
+  removeButton.addEventListener('click', () => {
+    ticketDecrement();
+  });
+  const removeImage = document.createElement('img');
+  removeImage.classList.add('selectItem');
+  removeImage.src = '/resources/remove.png';
+
+  removeButton.appendChild(removeImage);
+  counterArea.appendChild(removeButton);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var dateItems = document.querySelectorAll('#dates li');
+function createGlassesCounterButtons(value) {
+  const counterArea = document.getElementById("number-of-glasses");
 
-  dateItems.forEach(function(item) {
-    item.addEventListener('click', function() {
-      this.classList.add('active');
-      var siblings = Array.from(this.parentNode.children).filter(function(el) {
-        return el !== this;
-      }, this);
-      siblings.forEach(function(sibling) {
-        sibling.classList.remove('active');
-      });
-      console.log('active');
-    });
+  const addButton = document.createElement('button');
+  addButton.classList.add('add');
+  addButton.addEventListener('click', () => {
+    glassesIncrement();
   });
-});
 
-let ticketCounter = 0;
+  const addImage = document.createElement('img');
+  addImage.classList.add('selectItem');
+  addImage.src = '/resources/add.png';
+
+  addButton.appendChild(addImage);
+  counterArea.appendChild(addButton);
+
+  const counter = document.createElement("h2");
+  counter.innerHTML = value;
+  counter.id = "glassesCounter";
+  counterArea.appendChild(counter);
+
+  const removeButton = document.createElement('button');
+  removeButton.classList.add('remove');
+  removeButton.addEventListener('click', () => {
+    glassesDecrement();
+  });
+  const removeImage = document.createElement('img');
+  removeImage.classList.add('selectItem');
+  removeImage.src = '/resources/remove.png';
+
+  removeButton.appendChild(removeImage);
+  counterArea.appendChild(removeButton);
+}
 
 function ticketIncrement() {
   if (ticketCounter == 48) {
-  return;
+    return;
   }
   ticketCounter++;
   updateTicketCounterValue();
@@ -93,11 +153,10 @@ function updateTicketCounterValue() {
   document.getElementById('ticketCounter').textContent = ticketCounter.toString();
 }
 
-let glassesCounter = 0;
 
 function glassesIncrement() {
   if (glassesCounter == 48) {
-  return;
+    return;
   }
   glassesCounter++;
   updateGlassesCounterValue();
@@ -117,20 +176,59 @@ function updateGlassesCounterValue() {
 }
 
 
-function onClickPostBooking() {
-  //construct json with information
-  //send payload
-
-  fetch(`http://localhost:8080/movie/${movieId}/details`, {
-  method: 'POST',
-  headers: {"Content-Type": "application/json"},
-  body: {
-    "cinemaMovieId": cinemaMovieId, 
-    "date": date, 
-    "showId": showId, 
-    "glasses": glassesCounter, 
-    "seatIds": seatIds
+// Seat click event for movie seat
+function addOnClickMovieSeat(movieSeatContainer) {
+  movieSeatContainer.addEventListener('click', (seat) => {
+    if (seat.target.classList.contains('seat') && !seat.target.classList.contains('occupied')) {
+      seat.target.classList.toggle('selected-seat');
+      const seatId = seat.target.id;
+      if (seat.target.classList.contains('selected-seat')) {
+        seatIds.push(seatId);
+      } else {
+        const index = seatIds.indexOf(seatId);
+        if (index !== -1) {
+          seatIds.splice(index, 1);
+        }
+      }
+      console.log(seatIds)
     }
   });
 }
-//seats: array of int
+
+
+function addOnClickDateTime(item) {
+  item.addEventListener('click', function () {
+    this.classList.add('active');
+    var siblings = Array.from(this.parentNode.children).filter(function (el) {
+      return el !== this;
+    }, this);
+    siblings.forEach(function (sibling) {
+      sibling.classList.remove('active');
+    });
+  });
+}
+
+function onClickPostBooking() {
+  postBooking()
+	window.location.href = `/confirmation`;
+}
+
+function onClickExtras() {
+  postBooking();
+  window.location.href = `/extras`;
+}
+
+function postBooking() {
+  fetch(`http://localhost:8080/booking`, {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: {
+      "cinemaMovieId": cinemaMovieId,
+      "movie": movieId,
+      "date": date,
+      "showId": showId,
+      "glasses": glassesCounter,
+      "seatIds": seatIds
+    }
+  });
+}
