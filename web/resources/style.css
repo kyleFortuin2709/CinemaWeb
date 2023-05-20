@@ -37,7 +37,7 @@ body {
     flex-direction: column;
     padding-top: var(--navHeight);
     color:var(--textColour);
-    margin-bottom: 9%;
+    margin-bottom: 16%;
   }
 
   button {

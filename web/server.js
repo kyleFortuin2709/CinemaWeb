@@ -16,6 +16,9 @@ const {
 const {
   extrasRouter
 } = require('./src/modules/extras/router');
+const {
+  confirmationRouter
+} = require('./src/modules/confirmation/router');
 
 const port = process.env.WEB_PORT;
 
@@ -71,7 +74,14 @@ const requestListener = async function (req, res) {
         res.end(contents);
       });
       break
-    case '/confirmation': // work in progress
+    case '/confirmation':
+      await confirmationRouter(req, res)
+      .then(contents => {
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(200);
+        res.end(contents);
+      });
+      break
     default:
       res.writeHead(404);
       res.end(JSON.stringify({error:"Resource not found"}));

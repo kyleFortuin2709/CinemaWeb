@@ -5,7 +5,6 @@ const movieId = urlParams.get('movieId');
 let cinemaMovieId;
 let date;
 let showId;
-let glasses;
 let seatIds = [];
 let ticketCounter = 0;
 let glassesCounter = 0;
@@ -34,8 +33,6 @@ function generatePage(data) {
     createDatePicker(values[0], values[1])
   });
 
-  // createTicketCounterButtons(ticketCounter);
-  // createGlassesCounterButtons(glassesCounter);
   const movieSeatContainer = document.getElementById("movieSeatContainer");
 
   addOnClickMovieSeat(movieSeatContainer)
@@ -48,7 +45,6 @@ function createDatePicker(val1, val2) {
   span2 = document.createElement("span");
   parent = document.getElementById("dates");
   parent.appendChild(listItem);
-  // listItem.id = id;
   addOnClickDateTime(listItem);
   span1.innerHTML = val1;
   span2.innerHTML = val2;
@@ -87,7 +83,7 @@ function createTicketCounterButtons(value) {
   const counter = document.createElement("span");
   counter.innerHTML = value;
   counter.id = "ticketCounter";
-  counterArea.appendChild(counter); // Append the counter element to the counterArea
+  counterArea.appendChild(counter);
 
   const removeButton = document.createElement('button');
   removeButton.classList.add('remove');
@@ -180,7 +176,7 @@ function updateGlassesCounterValue() {
 }
 
 
-// Seat click event
+// Seat click event for movie seat
 function addOnClickMovieSeat(movieSeatContainer) {
   movieSeatContainer.addEventListener('click', (seat) => {
     if (seat.target.classList.contains('seat') && !seat.target.classList.contains('occupied')) {
@@ -197,7 +193,6 @@ function addOnClickMovieSeat(movieSeatContainer) {
       console.log(seatIds)
     }
   });
-
 }
 
 
@@ -214,6 +209,16 @@ function addOnClickDateTime(item) {
 }
 
 function onClickPostBooking() {
+  postBooking()
+	window.location.href = `/confirmation`;
+}
+
+function onClickExtras() {
+  postBooking();
+  window.location.href = `/extras`;
+}
+
+function postBooking() {
   fetch(`http://localhost:8080/booking`, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
