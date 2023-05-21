@@ -1,8 +1,29 @@
+let cinemaData = {
+  "cinemas": [
+  {
+    cinemaId: 1,
+    cinema: "Menlyn Park"
+  },
+  {
+    cinemaId: 2,
+    cinema: "Emperors Palace"
+  },
+  {
+    cinemaId: 3,
+    cinema: "Board Walk"
+  },
+  {
+    cinemaId: 4,
+    cinema: "The Glen"
+  },
+]};
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const movieId = urlParams.get('movieId');
 
 let cinemaMovieId;
+let cinemaId;
 let date;
 let showId;
 let seatIds = [];
@@ -41,11 +62,11 @@ function generatePage(data) {
 
 function createDatePicker(val1, val2) {
   listItem = document.createElement("li");
-  span1 = document.createElement("span");
-  span2 = document.createElement("span");
+  span1 = document.createElement("h2");
+  span2 = document.createElement("h2");
   parent = document.getElementById("dates");
   parent.appendChild(listItem);
-  addOnClickDateTime(listItem);
+  addOnClickDate(listItem);
   span1.innerHTML = val1;
   span2.innerHTML = val2;
   listItem.appendChild(span1);
@@ -53,128 +74,71 @@ function createDatePicker(val1, val2) {
 }
 
 function createTimePicker(val, id) {
-
-  listItem = document.createElement("li");
-  parent = document.getElementById("times");
+  var listItem = document.createElement("li");
+  var parent = document.getElementById("times");
   parent.appendChild(listItem);
   listItem.id = id;
-  addOnClickDateTime(listItem);
+  console.log("id: " + id);
+  console.log("listItem.id: " + listItem.id);
   listItem.innerHTML = val;
+  addOnClickTime(listItem);
 }
 
+function addOnClickTime(item) {
+  item.addEventListener('click', function () {
+    var isActive = this.classList.contains('active');
 
+    var elements = Array.from(this.parentNode.children);
+    elements.forEach(function (el) {
+      el.classList.remove('active');
+    });
 
-function createTicketCounterButtons(value) {
-  const counterArea = document.getElementById("number-of-tickets");
-
-  const addButton = document.createElement('button');
-  addButton.classList.add('add');
-  addButton.addEventListener('click', () => {
-    ticketIncrement();
+    if (!isActive) {
+      this.classList.add('active');
+      showId = this.id;
+      console.log("showId: "+showId);
+    } else {
+      showId = undefined;
+    }
   });
+}
 
-  const addImage = document.createElement('img');
-  addImage.classList.add('selectItem');
-  addImage.src = '/resources/add.png';
+function addOnClickDate(item) {
+  item.addEventListener('click', function () {
+    var isActive = this.classList.contains('active');
 
-  addButton.appendChild(addImage);
-  counterArea.appendChild(addButton);
+    var elements = Array.from(this.parentNode.children);
+    elements.forEach(function (el) {
+      el.classList.remove('active');
+    });
 
-  const counter = document.createElement("span");
-  counter.innerHTML = value;
-  counter.id = "ticketCounter";
-  counterArea.appendChild(counter);
-
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('remove');
-  removeButton.addEventListener('click', () => {
-    ticketDecrement();
+    if (!isActive) {
+      this.classList.add('active');
+      showId = this.id;
+      console.log("showId: "+showId);
+    } else {
+      showId = undefined;
+    }
   });
-  const removeImage = document.createElement('img');
-  removeImage.classList.add('selectItem');
-  removeImage.src = '/resources/remove.png';
-
-  removeButton.appendChild(removeImage);
-  counterArea.appendChild(removeButton);
 }
 
-function createGlassesCounterButtons(value) {
-  const counterArea = document.getElementById("number-of-glasses");
+const dropdown = document.createElement("select");
+dropdown.addEventListener("change", function() {
+  cinemaId = this.value;
+  console.log(cinemaId); // Log the selected cinemaId
+});
 
-  const addButton = document.createElement('button');
-  addButton.classList.add('add');
-  addButton.addEventListener('click', () => {
-    glassesIncrement();
-  });
+cinemaData.cinemas.forEach(function(cinemaItem) {
+  const option = document.createElement("option");
+  console.log(cinemaItem);
+  option.value = cinemaItem.cinemaId;
+  option.text = cinemaItem.cinemaName;
+  dropdown.appendChild(option);
+});
 
-  const addImage = document.createElement('img');
-  addImage.classList.add('selectItem');
-  addImage.src = '/resources/add.png';
-
-  addButton.appendChild(addImage);
-  counterArea.appendChild(addButton);
-
-  const counter = document.createElement("h2");
-  counter.innerHTML = value;
-  counter.id = "glassesCounter";
-  counterArea.appendChild(counter);
-
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('remove');
-  removeButton.addEventListener('click', () => {
-    glassesDecrement();
-  });
-  const removeImage = document.createElement('img');
-  removeImage.classList.add('selectItem');
-  removeImage.src = '/resources/remove.png';
-
-  removeButton.appendChild(removeImage);
-  counterArea.appendChild(removeButton);
-}
-
-function ticketIncrement() {
-  if (ticketCounter == 48) {
-    return;
-  }
-  ticketCounter++;
-  updateTicketCounterValue();
-}
-
-function ticketDecrement() {
-
-  if (ticketCounter > 0) {
-    ticketCounter--;
-    updateTicketCounterValue();
-  }
-
-}
-
-function updateTicketCounterValue() {
-  document.getElementById('ticketCounter').textContent = ticketCounter.toString();
-}
-
-
-function glassesIncrement() {
-  if (glassesCounter == 48) {
-    return;
-  }
-  glassesCounter++;
-  updateGlassesCounterValue();
-}
-
-function glassesDecrement() {
-
-  if (glassesCounter > 0) {
-    glassesCounter--;
-    updateGlassesCounterValue();
-  }
-
-}
-
-function updateGlassesCounterValue() {
-  document.getElementById('glassesCounter').textContent = glassesCounter.toString();
-}
-
+// Add the dropdown to the page
+const container = document.getElementById("dropdownContainer");
+container.appendChild(dropdown);
 
 // Seat click event for movie seat
 function addOnClickMovieSeat(movieSeatContainer) {
@@ -184,7 +148,8 @@ function addOnClickMovieSeat(movieSeatContainer) {
       const seatId = seat.target.id;
       if (seat.target.classList.contains('selected-seat')) {
         seatIds.push(seatId);
-      } else {
+      } 
+      else {
         const index = seatIds.indexOf(seatId);
         if (index !== -1) {
           seatIds.splice(index, 1);
@@ -195,18 +160,6 @@ function addOnClickMovieSeat(movieSeatContainer) {
   });
 }
 
-
-function addOnClickDateTime(item) {
-  item.addEventListener('click', function () {
-    this.classList.add('active');
-    var siblings = Array.from(this.parentNode.children).filter(function (el) {
-      return el !== this;
-    }, this);
-    siblings.forEach(function (sibling) {
-      sibling.classList.remove('active');
-    });
-  });
-}
 
 function onClickPostBooking() {
   return postBooking()
