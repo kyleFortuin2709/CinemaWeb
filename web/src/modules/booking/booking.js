@@ -164,7 +164,7 @@ function addOnClickMovieSeat(movieSeatContainer) {
 function onClickPostBooking() {
   return postBooking()
   .then((data) => {
-    // window.location.href = `/confirmation?id=${data.refNo}`;
+    window.location.href = `/confirmation?id=${data.refNo}`;
   });
 };
 
@@ -191,6 +191,13 @@ function postBooking() {
       glasses: glassesCounter,
       seatIds: seatIds
     })
+    // body: JSON.stringify({
+    //   "cinemaMovieId": 1,
+    //   "movie":"1",
+    //   "showId": 1,
+    //   "glasses":0,
+    //   "seatIds":["A3", "A4"]
+    // })
   })
   .then(response => response.json());
 };
