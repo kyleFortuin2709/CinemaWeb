@@ -7,6 +7,13 @@ module.exports.cinemaMovieView = {
     const statement = `
       SELECT
         "cinemaMovieId",
+        "cinemaComplexId",
+        "complexId",
+        "complexName",
+        "cinemaId",
+        "cinemaName",
+        "movieId",
+        "name",
         "showId",
         "startDateTime"
       FROM "CinemaMovieView"
