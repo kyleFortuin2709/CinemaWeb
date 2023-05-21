@@ -13,7 +13,8 @@ const {
     homeRouter,
     moviesRouter,
     bookingRouter,
-    extrasRouter
+    extrasRouter,
+    confirmationRouter
 } = require('./src/modules/routes');
 
 app.use(cors())
@@ -23,6 +24,7 @@ app.use('/', homeRouter);
 app.use('/movie', moviesRouter);
 app.use('/booking', bookingRouter)
 app.use('/extras', extrasRouter);
+app.use('/confirmation', confirmationRouter);
 
 
 app.listen(port);

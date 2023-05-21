@@ -9,8 +9,7 @@ module.exports.images = {
       .then(result => {
         const data = result.backdrops.find(data => data.iso_639_1 === 'en');
         return {
-          filePath: data.file_path,
-          test: "Lisa's test"
+          filePath: data.file_path
         }
       })
   },
@@ -19,10 +18,9 @@ module.exports.images = {
     return apiCall({path})
       .then(result => {
         const data = result.backdrops.find(data => data.iso_639_1 === 'en');
-        return [{
-          filePath: data.file_path,
-          test: "Lisa's test"
-        }]
+        return {
+          filePath: data.file_path
+        }
       })
   },
 }

@@ -183,21 +183,21 @@ function postBooking() {
       'Accept': 'application/json',
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      cinemaMovieId: cinemaMovieId,
-      movie: movieId,
-      date: date,
-      showId: showId,
-      glasses: glassesCounter,
-      seatIds: seatIds
-    })
     // body: JSON.stringify({
-    //   "cinemaMovieId": 1,
-    //   "movie":"1",
-    //   "showId": 1,
-    //   "glasses":0,
-    //   "seatIds":["A3", "A4"]
+    //   cinemaMovieId: cinemaMovieId,
+    //   movie: movieId,
+    //   date: date,
+    //   showId: showId,
+    //   glasses: glassesCounter,
+    //   seatIds: seatIds
     // })
+    body: JSON.stringify({
+      "cinemaMovieId": 1,
+      "movie":"1",
+      "showId": 1,
+      "glasses":0,
+      "seatIds":["A3", "A4"]
+    })
   })
   .then(response => response.json());
 };
