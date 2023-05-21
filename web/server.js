@@ -120,7 +120,9 @@ function getContentType(filePath) {
         return "image/png"; 
       case ".jpg": 
       case ".jpeg": 
-      return "image/jpeg"; 
+        return "image/jpeg";
+      case ".svg":
+        return "image/svg+xml";
       default: 
         return "application/octet-stream"; } 
  }
