@@ -37,6 +37,7 @@ const createExtraPrice = (price, id) => {
 const createAddButton = (id) => {
   const addButton = document.createElement('button')
     addButton.classList.add('add');
+    addButton.textContent = '+'
     addButton.addEventListener('click', () => {
       const amountElement = document.getElementById('amount_'+id)
       const amount = amountElement.textContent;
@@ -45,13 +46,6 @@ const createAddButton = (id) => {
       const index = selectedItems.findIndex(item => item.id === id);
       selectedItems[index].selected = newAmount;
     });
-
-    const addImage = document.createElement('img'); 
-    addImage.classList.add('selectItem');
-    addImage.src = '/resources/add.png';
-    addImage.id = 'addImage'+id;
-
-		addButton.appendChild(addImage);
     return addButton;
 };
 
@@ -65,6 +59,7 @@ const createAmount = (id) => {
 const createRemoveButton = (id) => {
   const removerButton = document.createElement('button')
   removerButton.classList.add('remove');
+  removerButton.textContent = '-'
   removerButton.addEventListener('click', () => {
     const amountElement = document.getElementById('amount_'+id)
     const amount = amountElement.textContent
@@ -74,13 +69,6 @@ const createRemoveButton = (id) => {
     const index = selectedItems.findIndex(item => item.id === id);
     selectedItems[index].selected = newAmount < 0 ? 0 : newAmount;
   });
-
-  const removeImage = document.createElement('img'); 
-  removeImage.classList.add('selectItem');
-  removeImage.src = '/resources/remove.png';
-  removeImage.id = 'removeImage'+id
-
-  removerButton.appendChild(removeImage);
   return removerButton;
 }
 

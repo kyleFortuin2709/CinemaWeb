@@ -16,20 +16,39 @@
   margin-top: -2%;
 }
 .add {
-  margin-left: -15%;
   margin-right: 15%;
+  background-color: #7E72C8;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  position: relative;
+  border-radius: 20%;
 }
 .remove {
   margin-left: 15%;
+  background-color: #7E72C8;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  position: relative;
+  border-radius: 20%;
 }
+button {
+  padding-inline: 0px;
+  padding-top: 0px;
+  cursor: pointer;
+  background-color: #7E72C8;
+}
+
 .details {
   margin-top: -60%;
+  display: flex;
+  flex-direction: row;
 }
 .selectItem {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   border-radius: 10%;
-  cursor: pointer;
   background-color: #D6D6D64D;
 }
 
@@ -48,11 +67,13 @@
   flex-wrap: wrap;
   margin: 16px;
   gap: 10px;
-  width: 50%;
+  width: 40%;
 }
 
 .extras {
   justify-content: center;
+  align-items: center;
+  margin-bottom: -1%;
 }
 
 .col {
@@ -63,12 +84,11 @@
 }
 
 .confirm {
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: 70%;
   font-size: 110%;
   background-color: #7E72C8;
   border: none;
   height: 50px;
   width: 180px;
-  cursor: pointer;
 }
