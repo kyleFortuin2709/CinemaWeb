@@ -45,6 +45,7 @@ const getBooking = (refNo) => {
         apiMovieId: bookingDetail.apiMovieId,
         refNo: bookingDetail.refNo,
         movieId: bookingDetail.movieId,
+        cinemaName: bookingDetail.cinemaName,
         date: startDate.getDate() + ' ' + startDate.toLocaleString('default', { month: 'long' }) + ", " + startDate.getFullYear()
       };
       details.forEach(detail => {
