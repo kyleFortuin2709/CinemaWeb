@@ -44,7 +44,8 @@ const getBooking = (refNo) => {
         apiMovieId: bookingDetail.apiMovieId,
         refNo: bookingDetail.refNo,
         movieId: bookingDetail.movieId,
-        date: 'test Date'
+        date: 'test Date',
+        cinemaName: bookingDetail.cinemaName
       };
       details.forEach(detail => {
         price += detail.price;

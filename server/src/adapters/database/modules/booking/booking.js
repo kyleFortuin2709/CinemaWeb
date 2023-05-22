@@ -53,7 +53,8 @@ module.exports.booking = {
         "seatNumber",
         "startDateTime",
         m."id" AS "movieId",
-        "apiMovieId"
+        "apiMovieId",
+        cin."name" AS "cinemaName"
       FROM Booking b
       JOIN Ticket t
       ON t."bookingId" = b."id"
@@ -63,6 +64,15 @@ module.exports.booking = {
       ON s."id" = ms."seatId"
       JOIN Shows sh
       ON sh."id" = ms."showId"
+      JOIN CinemaMovie cm
+      ON cm."id" = t."cinemaMovieId"
+      JOIN Cinema cin
+      ON cin."id" = (
+        SELECT
+          "cinemaId"
+        FROM CinemaComplex ccom
+        WHERE ccom."id" = cm."cinemaComplexId"
+      )
       JOIN Movie m
       ON m."id" = (
         SELECT 
