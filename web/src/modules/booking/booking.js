@@ -54,9 +54,10 @@ function generatePage(data) {
     createDatePicker(values[0], values[1])
   });
 
-  const movieSeatContainer = document.getElementById("movieSeatContainer");
 
-  addOnClickMovieSeat(movieSeatContainer)
+  addOnClickMovieSeat()
+
+  generateDropdown();
 
 }
 
@@ -122,26 +123,30 @@ function addOnClickDate(item) {
   });
 }
 
-const dropdown = document.createElement("select");
-dropdown.addEventListener("change", function() {
-  cinemaId = this.value;
-  console.log(cinemaId); // Log the selected cinemaId
-});
-
-cinemaData.cinemas.forEach(function(cinemaItem) {
-  const option = document.createElement("option");
-  console.log(cinemaItem);
-  option.value = cinemaItem.cinemaId;
-  option.text = cinemaItem.cinemaName;
-  dropdown.appendChild(option);
-});
-
 // Add the dropdown to the page
-const container = document.getElementById("dropdownContainer");
-container.appendChild(dropdown);
+function generateDropdown(){
+  dropdown.addEventListener("change", function() {
+    cinemaId = this.value;
+    console.log(cinemaId); // Log the selected cinemaId
+  });
+  
+  cinemaData.cinemas.forEach(function(cinemaItem) {
+    const option = document.createElement("option");
+    console.log(cinemaItem);
+    option.value = cinemaItem.cinemaId;
+    option.text = cinemaItem.cinemaName;
+    dropdown.appendChild(option);
+  });
+
+  const dropdown = document.createElement("select");
+  const container = document.getElementById("dropdownContainer");
+  container.appendChild(dropdown);
+}
+
 
 // Seat click event for movie seat
-function addOnClickMovieSeat(movieSeatContainer) {
+function addOnClickMovieSeat() {
+  const movieSeatContainer = document.getElementById("movieSeatContainer");
   movieSeatContainer.addEventListener('click', (seat) => {
     if (seat.target.classList.contains('seat') && !seat.target.classList.contains('occupied')) {
       seat.target.classList.toggle('selected-seat');
