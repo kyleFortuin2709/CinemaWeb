@@ -39,12 +39,13 @@ const getBooking = (refNo) => {
     .then(details => {
       const bookingDetail = details.find(() => true);
       let price = 0;
+      let startDate = new Date(bookingDetail.startDateTime);
       let confirmation = {
         seats: [],
         apiMovieId: bookingDetail.apiMovieId,
         refNo: bookingDetail.refNo,
         movieId: bookingDetail.movieId,
-        date: 'test Date'
+        date: startDate.getDate() + ' ' + startDate.toLocaleString('default', { month: 'long' }) + ", " + startDate.getFullYear()
       };
       details.forEach(detail => {
         price += detail.price;
