@@ -86,7 +86,7 @@ INSERT INTO [Movie]
 GO
 
 INSERT INTO [Extras]
-			([name], [price], [imagePath]
+			([name], [price], [imagePath])
 	VALUES
 		('Popcorn', 40.00, '/popcorn.jpg'),
 		('3D Glasses', 35.00, '/3dglasses.jpg'),
