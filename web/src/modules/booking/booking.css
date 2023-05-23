@@ -172,6 +172,9 @@
     cursor: default;
     transform: scale(1);
   }
+
+  /* seat layout */
+
   
   .showcase {
     background-color: rgba(0, 0, 0, 0.1);
@@ -198,8 +201,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 10px;
+    justify-content: center;
   }
-
   
   p.text {
     margin: 5px 0;
@@ -208,3 +211,33 @@
   tr td {
     color: #6feaf6;
   }
+
+  button {
+    display: flex;
+  padding: 5px;
+  gap: 10px;
+  width: 308px;
+  height: 61px;
+  background: #7E72C8;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+    
+  }
+
+  /* email */
+  
+  #dropdownContainer {
+    position: relative;
+  }
+  
+  input[type="email"] {
+    width: 200px; 
+    padding: 10px;
+    background-color: #2F2C44; 
+  }
+  
