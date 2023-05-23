@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 const movieId = urlParams.get('movieId');
 console.log(movieId);
 
-fetch(`http://localhost:8080/movie/${movieId}/details`, {
+fetch(`http://13.244.38.48:8080/movie/${movieId}/details`, {
   method: 'GET',
   headers: {"Content-Type": "application/json"}
 })

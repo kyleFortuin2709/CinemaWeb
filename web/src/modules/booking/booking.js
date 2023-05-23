@@ -31,7 +31,7 @@ let ticketCounter = 0;
 let glassesCounter = 0;
 
 
-fetch(`http://localhost:8080/booking/movie/${movieId}`, {
+fetch(`http://13.244.38.48:8080/booking/movie/${movieId}`, {
   method: 'GET',
   headers: { "Content-Type": "application/json" }
 })
@@ -181,7 +181,7 @@ function onClickExtras() {
 };
 
 function postBooking() {
-  return fetch(`http://localhost:8080/booking`, {
+  return fetch(`http://13.244.38.48:8080/booking`, {
     method: 'POST',
     mode: "cors",
     headers: {
