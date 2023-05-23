@@ -50,7 +50,8 @@ const getBooking = (refNo) => {
       };
       details.forEach(detail => {
         price += detail.price;
-        confirmation.time = getTime(detail.startDateTime);
+        confirmation.startTime = getTime(detail.startDateTime);
+        confirmation.endTime = getTime(detail.endDateTime);
         confirmation.seats.push(`${detail.seatRow.toUpperCase()}${detail.seatNumber}`);
       });
       confirmation.price = `R ${price}`;

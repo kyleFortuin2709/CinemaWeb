@@ -22,8 +22,10 @@ fetch(`http://localhost:8080/confirmation/${bookingRef}`, {
 		document.getElementById('bookingSeats1').textContent = data.seats;
 		document.getElementById('movieDate').textContent = data.date;
 		document.getElementById('movieDate1').textContent = data.date;
-		document.getElementById('movieTime').textContent = data.time;
-		document.getElementById('movieTime1').textContent = data.time;
+		document.getElementById('movieStartTime').textContent = data.startTime;
+		document.getElementById('movieStartTime1').textContent = data.startTime;
+		document.getElementById('movieEndTime').textContent = data.endTime;
+		document.getElementById('movieEndTime1').textContent = data.endTime;
 		document.getElementById('cinemaName').textContent = data.cinemaName;
 		document.getElementById('bookingPrice').textContent = data.price;
 
