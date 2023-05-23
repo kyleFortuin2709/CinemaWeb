@@ -24,22 +24,22 @@ module.exports.bookingController = {
     });
   },
   addBooking: (data) => {
-    return mapSeats(data.seatIds)
-      .then(seats => {
-        data.seatIds = seats
-        return Promise.all([
-          bookMovieSeats(data),
-          createBooking()
-        ]).then(([movieSeats, booking])=> {
-          return createTickets({
-            movieSeats,
-            cinemaMovieId: data.cinemaMovieId,
-            bookingId: booking.id,
-          })
-          .then(() => {
-            return booking;
-          });
-        });
+    return Promise.all([
+      bookMovieSeats(data),
+      createBooking(data.email)
+    ]).then(([movieSeats, booking])=> {
+      return createTickets({
+        movieSeats,
+        cinemaMovieId: data.cinemaMovieId,
+        bookingId: booking.id,
+      })
+      .then(() => {
+        return booking;
       });
+    });
+    // return mapSeats(data.seatIds)
+    //   .then(seats => {
+    //     data.seatIds = seats
+    //   });
   }
 };

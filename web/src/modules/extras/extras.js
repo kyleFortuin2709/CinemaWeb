@@ -75,7 +75,7 @@ const createRemoveButton = (id) => {
 const submitExtras = () => {
   console.log('submitExtras');
   const purchasedItems = selectedItems.filter(item => item.selected !== 0);
-  fetch(`http://localhost:8080/extras`, {
+  fetch(`http://13.244.38.48:8080/extras`, {
     method: 'POST',
     mode: "cors",
     headers: {
@@ -91,7 +91,7 @@ const submitExtras = () => {
   })
 }
 
-fetch(`http://localhost:8080/extras`, {
+fetch(`http://13.244.38.48:8080/extras`, {
   method: 'GET',
   headers: {
     "Content-Type": "application/json"

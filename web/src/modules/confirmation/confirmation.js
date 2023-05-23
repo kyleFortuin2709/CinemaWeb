@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 const bookingRef = urlParams.get('id');
 console.log('bookingRef: ', bookingRef);
 
-fetch(`http://localhost:8080/confirmation/${bookingRef}`, {
+fetch(`http://13.244.38.48:8080/confirmation/${bookingRef}`, {
 	method: 'GET',
 	headers: { "Content-Type": "application/json" }
 })

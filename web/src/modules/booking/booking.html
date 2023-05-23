@@ -19,6 +19,7 @@
         <li><a href="indextest.html">Home</a></li>
     </ul>
     </nav>
+
     <section id="booking" class="vertical-section">
       <!-- movie poster -->
       <!-- date -->
@@ -35,26 +36,54 @@
       </article>
 
 
-      <!-- Cinema select (Please fix to integrate whatever you need to to get cinema names etc.)-->
-      <section class="dropdown">
-        <h4 class="dropdown-title">Choose Your cinema</h4>
-          <select class="dropdown-field">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-          </select>
-      </section>
+      <section id="booking" class="vertical-section">
+        <!-- movie poster -->
+        <!-- date -->
+        <article class="outer-picker">
+          <ul id="dates">
+            <!-- code generated -->
+          </ul>
+        </article>
+        <!-- time -->
+        <article class="outer-picker">
+          <ul id="times">
+            <!-- code generated -->
+          </ul>
+        </article>
+  
 
-      <!-- Email -->
+        <!-- Table of trailer and dropdowns-->
+        <table>
+          <tr>
+            <td>
+              <video width="320" height="240" controls>
+                <source src="your-video-source.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </td>
+            <td>
+              <section class="dropdown">
+                <h4 class="dropdown-title">Choose Your cinema</h4>
+              <select class="dropdown-field">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+               </select>
+              </section>
 
-      <section class="textfield">
-        <h4 class="dropdown-title">Enter Your Email</h4>
-          <article id="dropdownContainer"></article>
-          <article id="dropdownContainer">
-          <input type="email">
-          </article>
-      </section>
+            <!-- Email -->
+
+              <section class="textfield">
+                <h4 class="dropdown-title">Enter Your Email</h4>
+                <article id="dropdownContainer"></article>
+                <article id="dropdownContainer">
+                <input type="email">
+                </article>
+              </section>
+            </td>
+          </tr>
+        </table>      
 
 
       <!--Heading-->
@@ -147,7 +176,6 @@
         </table>
       </article>
 
-
     <!-- Book movie button -->
     <button class="main-button" onclick="onClickPostBooking()">
       <h5>Book!</h5>
@@ -158,6 +186,39 @@
       <h5>Get Some Snacks!</h5>
     </button>
 
+    <!--Cards-->
+    <section class="card-section">
+      <h3>Don't Forget Your Snacks!</h3>
+      <div class="card-container">
+        <article class="card">
+          <img src="image-url" alt="Image" class="card-image">
+          <h3 class="card-title">Card Title 1</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="card-button" onclick="onClickExtras()>
+            <span class="button-icon"></span>
+            Button Text 1
+          </button>
+        </article>
+        <article class="card">
+          <img src="image-url" alt="Image" class="card-image">
+          <h3 class="card-title">Card Title 2</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="card-button"onclick="onClickExtras()>
+            <span class="button-icon"></span>
+            Button Text 2
+          </button>
+        </article>
+        <article class="card">
+          <img src="image-url" alt="Image" class="card-image">
+          <h3 class="card-title">Card Title 3</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="card-button" onclick="onClickExtras()>
+            <span class="button-icon"></span>
+            Button Text 3
+          </button>
+        </article>
+      </div>
+    </section>
 
   <footer id="footer">
     <p>2023</p>

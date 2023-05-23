@@ -124,8 +124,8 @@ module.exports = {
   createTickets: (data) => {
     return tickets.createTickets(data);
   },
-  createBooking: () => {
-    return booking.createBooking();
+  createBooking: (email) => {
+    return booking.createBooking(email);
   },
   bookMovieSeats: (data) => {
     return movieSeat.bookMovieSeats(data);

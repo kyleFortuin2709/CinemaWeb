@@ -48,11 +48,21 @@ function generateImages(data) {
 	});
 }
 
-// Call the function to generate the images
+document.addEventListener("DOMContentLoaded", function() {
+	const navigationPlaceholder = document.getElementById("navigationPlaceholder");
+	const navigationURL = "/resources/navigation.html";
+	
+	fetch(navigationURL)
+	  .then(response => response.text())
+	  .then(data => {
+		navigationPlaceholder.innerHTML = data;
+	  })
+	  .catch(error => {
+		console.error("Error fetching navigation:", error);
+	  });
+  });
 
-
-
-fetch(`http://localhost:8080/`, {
+fetch(`http://13.244.38.48:8080/`, {
 	method: 'GET',
 	headers: { "Content-Type": "application/json" }
 })
