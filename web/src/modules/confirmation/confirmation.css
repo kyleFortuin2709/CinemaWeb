@@ -13,10 +13,7 @@ p {
 
 .movie-ticket{
     padding: 0px;
-    /*
     background-color: #02000B;
-    */
-    background-color: red;
     height: 427px;
     width: 1200px;
     align-content: center;
@@ -98,11 +95,11 @@ p {
 }
 
 .details > #movieTitle {
-    font-size: 72px;
+    font-size: 42px;
     font-weight: bold;
     flex-direction: column;
     margin: 0px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .details > #movieSeat, .details > #bookingSeats, .details > .details-bottom > #movieDate, .details > .details-bottom > #movieTimeMain {
@@ -150,7 +147,21 @@ p {
 }
 
 .movie-ticket-info{
-    margin-left: 200px;
+    margin-left: 155px;
+    padding: 0px;
+}
+
+.movie-ticket-info > .material-symbols-outlined {
+    margin: 0px;
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 6px;
+    left: 5px;
+}
+
+.movie-ticket-info > .info-text {
+    line-height: 5px;
+    margin-left: 5px;
 }
 
 .material-symbols-outlined {
