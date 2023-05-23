@@ -5,9 +5,10 @@
   <title>CinemaApp</title>
   <link rel="stylesheet" href="/resources/style.css">
   <link rel="stylesheet" href="/src/modules/confirmation/confirmation.css"">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -41,17 +42,21 @@
         <section id="details-side">
           <p id="cinemaName"></p>
           <p id="movieTitle1"></p>
-          <p>Total: <u id="bookingPrice"></u></p>
-          <h5>Seats: <u id="bookingSeats1"></u></h5>
+          <section id="moviePrice">Total: <p id="bookingPrice"></p></section>
+          <section id="movieSeat1">Seats: <p id="bookingSeats1"></p></section>
           <p id="movieDate1"></p>
-          <p id="movieStartTime1"></p> - <p id="movieEndTime1"></p>
+          <section id="movieTime1"><p id="movieStartTime1"></p> - <p id="movieEndTime1"></p></section>
         </section>
       </section>
-
-      <section id="barcode"></section>
+      
+      <section id="barcode">
+        <img src="/resources/scan_bar.svg" />
+      </section>
     </section>
 
-    Your ticket will be sent to your email
+    <section class="movie-ticket-info">
+      <p class="material-symbols-outlined">info</p> Your ticket will be sent to your email
+    </section>
   </section>
   <footer id="footer">
     <p>2023</p>

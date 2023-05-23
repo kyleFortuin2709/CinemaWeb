@@ -13,24 +13,47 @@ p {
 
 .movie-ticket{
     padding: 0px;
+    /*
     background-color: #02000B;
-    height: 450px;
+    */
+    background-color: red;
+    height: 427px;
     width: 1200px;
     align-content: center;
     margin: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 #poster, #backdrop{
-    height: 450px;
+    height: 427px;
 }
 
 #movie-details, #movie-details-side {
-    width: 25%;
+    width: 25.2%;
     padding-top: 0px;
     max-width: 100%;
     max-height: 100%;
     margin: 0px;
     float: left;
+    /*
+    background-color: green;
+    */
+}
+
+#movie-details-side {
+    width: 23%;
+    height: 100%;
+}
+
+#movie-details-side > #details-side > #moviePrice, #movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieTime1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+#movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieDate1, #movie-details-side > #details-side > #movieTime1 {
+    font-size: 12px;
+    display: inline;
 }
 
 #movie-details > #poster, #movie-details-side > #backdrop {
@@ -47,16 +70,23 @@ p {
     max-width: 200px;
     transform: rotate(-90deg);
     float: left;
+    position: relative;
+    bottom: 0;
+    display: table-cell;
+    margin-top: 220px;
+    margin-left: 5px;
 }
 
 #movie-details-side > #details-side {
     transform: rotate(-90deg);
-    padding: 0px;
-    margin: 0px;
+    /* padding: 0px; */
+    /* margin: 0px; */
+    margin-left: 0px;
+    text-align: left;
 }
 
 .details{
-    width: 30%;
+    width: 40%;
     height: 91%;
     padding-top: 0%;
     color: white;
@@ -72,7 +102,7 @@ p {
     font-weight: bold;
     flex-direction: column;
     margin: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 .details > #movieSeat, .details > #bookingSeats, .details > .details-bottom > #movieDate, .details > .details-bottom > #movieTimeMain {
@@ -102,12 +132,31 @@ p {
     float: left;
     width: 50%;
     text-align: left;
-    margin-top: 99px;
+    margin-top: 130px;
 }
 
 .details > .details-bottom > #movieTimeMain {
     float: right;
     width: 44%;
     text-align: left;
-    margin-top: 70px;
+    margin-top: 105px;
+}
+
+#barcode {
+    height: 100%;
+    float: right;
+    padding-top: 0px;
+    padding-right: 20px;
+}
+
+.movie-ticket-info{
+    margin-left: 200px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
