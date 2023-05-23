@@ -1,0 +1,173 @@
+.confirmation-text{
+    text-align: center;
+    font-size: 72px;
+}
+
+section {
+    display: block;
+}
+
+p {
+    display: unset;
+}
+
+.movie-ticket{
+    padding: 0px;
+    background-color: #02000B;
+    height: 427px;
+    width: 1200px;
+    align-content: center;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#poster, #backdrop{
+    height: 427px;
+}
+
+#movie-details, #movie-details-side {
+    width: 25.2%;
+    padding-top: 0px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0px;
+    float: left;
+    /*
+    background-color: green;
+    */
+}
+
+#movie-details-side {
+    width: 23%;
+    height: 100%;
+}
+
+#movie-details-side > #details-side > #moviePrice, #movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieTime1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+#movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieDate1, #movie-details-side > #details-side > #movieTime1 {
+    font-size: 12px;
+    display: inline;
+}
+
+#movie-details > #poster, #movie-details-side > #backdrop {
+    margin: 0px;
+}
+
+#movie-details-side {
+    background-color: blue;
+    flex-direction: column;
+}
+
+#movie-details-side > #backdrop {
+    max-height: 200px;
+    max-width: 200px;
+    transform: rotate(-90deg);
+    float: left;
+    position: relative;
+    bottom: 0;
+    display: table-cell;
+    margin-top: 220px;
+    margin-left: 5px;
+}
+
+#movie-details-side > #details-side {
+    transform: rotate(-90deg);
+    /* padding: 0px; */
+    /* margin: 0px; */
+    margin-left: 0px;
+    text-align: left;
+}
+
+.details{
+    width: 40%;
+    height: 91%;
+    padding-top: 0%;
+    color: white;
+    float: left;
+    padding: 20px;
+    border-right: dashed white 2px;
+    display: flex;
+    margin: 0px;
+}
+
+.details > #movieTitle {
+    font-size: 42px;
+    font-weight: bold;
+    flex-direction: column;
+    margin: 0px;
+    margin-bottom: 60px;
+}
+
+.details > #movieSeat, .details > #bookingSeats, .details > .details-bottom > #movieDate, .details > .details-bottom > #movieTimeMain {
+    font-size: 24px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.details > .details-bottom:before, .details > .details-bottom:after {
+  content: "";
+  display: table;
+}
+
+.details > .details-bottom:after {
+  clear: both;
+}
+
+.details > .details-bottom {
+  clear: both;
+  padding-top: 0px;
+  padding: 0px;
+  margin: 0px;
+  *zoom: 1;
+}
+
+.details > .details-bottom > #movieDate { 
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-top: 130px;
+}
+
+.details > .details-bottom > #movieTimeMain {
+    float: right;
+    width: 44%;
+    text-align: left;
+    margin-top: 105px;
+}
+
+#barcode {
+    height: 100%;
+    float: right;
+    padding-top: 0px;
+    padding-right: 20px;
+}
+
+.movie-ticket-info{
+    margin-left: 155px;
+    padding: 0px;
+}
+
+.movie-ticket-info > .material-symbols-outlined {
+    margin: 0px;
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 6px;
+    left: 5px;
+}
+
+.movie-ticket-info > .info-text {
+    line-height: 5px;
+    margin-left: 5px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}

@@ -52,6 +52,7 @@ module.exports.booking = {
         "seatRow",
         "seatNumber",
         "startDateTime",
+        "endDateTime",
         m."id" AS "movieId",
         "apiMovieId",
         cin."name" AS "cinemaName"
