@@ -21,17 +21,17 @@ td,p {
   flex-direction: column;
   padding-left: 2%;
   margin-top: -2.5%;
-
 }
 
 .subDetails {
   flex-direction: row;
-  margin-top: -18%;
+  margin-top: -8%;
+  margin-bottom: 0%;
 }
 
 .overview {
   width: 60%;
-  margin-top: -10%;
+  margin-top: 3%;
 }
 
 .book {

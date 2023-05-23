@@ -186,7 +186,6 @@ function addOnClickMovieSeat() {
   });
 }
 
-
 function onClickPostBooking() {
   bookingEmail = document.getElementById('emailInput').value;
   cinemaMovieId = getCinemaMovieId();
