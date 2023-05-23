@@ -19,6 +19,7 @@
         <li><a href="indextest.html">Home</a></li>
     </ul>
     </nav>
+
     <section id="booking" class="vertical-section">
       <!-- movie poster -->
       <!-- date -->
@@ -34,10 +35,22 @@
         </ul>
       </article>
 
-      <section class="split-container">
-        <article class="trailer">
-          <img src="your-image-url" alt="Image">
+
+      <section id="booking" class="vertical-section">
+        <!-- movie poster -->
+        <!-- date -->
+        <article class="outer-picker">
+          <ul id="dates">
+            <!-- code generated -->
+          </ul>
         </article>
+        <!-- time -->
+        <article class="outer-picker">
+          <ul id="times">
+            <!-- code generated -->
+          </ul>
+        </article>
+  
 
         <!-- Table of trailer and dropdowns-->
         <table>
@@ -97,8 +110,6 @@
         <svg width="500" height="100" viewBox="0 0 500 100">
           <path d="M0,30 C100,0 400,0 500,30" fill="transparent" stroke="rgba(77, 67, 138, 0.7)" stroke-width="2" class="screen"/>
         </svg>
-
-        <!-- Seating Chart -->
         <table class="row" cellSpacing="10">
           <tr>
             <td id="1" class="seat"></td>
@@ -165,7 +176,6 @@
         </table>
       </article>
 
-
     <!-- Book movie button -->
     <button class="main-button" onclick="onClickPostBooking()">
       <h5>Book!</h5>
@@ -176,6 +186,39 @@
       <h5>Get Some Snacks!</h5>
     </button>
 
+    <!--Cards-->
+    <section class="card-section">
+      <h3>Don't Forget Your Snacks!</h3>
+      <div class="card-container">
+        <article class="card">
+          <img src="image-url" alt="Image" class="card-image">
+          <h3 class="card-title">Card Title 1</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="card-button" onclick="onClickExtras()>
+            <span class="button-icon"></span>
+            Button Text 1
+          </button>
+        </article>
+        <article class="card">
+          <img src="image-url" alt="Image" class="card-image">
+          <h3 class="card-title">Card Title 2</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="card-button"onclick="onClickExtras()>
+            <span class="button-icon"></span>
+            Button Text 2
+          </button>
+        </article>
+        <article class="card">
+          <img src="image-url" alt="Image" class="card-image">
+          <h3 class="card-title">Card Title 3</h3>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="card-button" onclick="onClickExtras()>
+            <span class="button-icon"></span>
+            Button Text 3
+          </button>
+        </article>
+      </div>
+    </section>
 
   <footer id="footer">
     <p>2023</p>
