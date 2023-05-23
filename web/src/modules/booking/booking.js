@@ -31,7 +31,7 @@ let bookingEmail;
 let data;
 
 
-fetch(`http://localhost:8080/booking/movie/${movieId}`, {
+fetch(`http://13.244.38.48:8080/booking/movie/${movieId}`, {
   method: 'GET',
   headers: { "Content-Type": "application/json" }
 })
