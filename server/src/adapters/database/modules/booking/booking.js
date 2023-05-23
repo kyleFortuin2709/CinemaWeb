@@ -27,10 +27,10 @@ module.exports.booking = {
         return response.recordset.find(() => true);
       });
   },
-  createBooking: () => {
+  createBooking: (email) => {
     const statement = `
       INSERT INTO "Booking"("email")
-      VALUES('mariusTestBooking@bookings.co.za')
+      VALUES('${email}')
       SELECT
         "id",
         "email",
