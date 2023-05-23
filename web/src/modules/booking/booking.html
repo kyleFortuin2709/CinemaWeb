@@ -34,12 +34,31 @@
         </ul>
       </article>
 
-      <!-- Cinema select -->
-      <article id="dropdownContainer"></article>
-      <article id="dropdownContainer">
-        <input type="email">
-      </article>
 
+      <!-- Cinema select (Please fix to integrate whatever you need to to get cinema names etc.)-->
+      <section class="dropdown">
+        <h4 class="dropdown-title">Choose Your cinema</h4>
+          <select class="dropdown-field">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+          </select>
+      </section>
+
+      <!-- Email -->
+
+      <section class="textfield">
+        <h4 class="dropdown-title">Enter Your Email</h4>
+          <article id="dropdownContainer"></article>
+          <article id="dropdownContainer">
+          <input type="email">
+          </article>
+      </section>
+
+
+      <!--Heading-->
+      <h3 class="section-title">Choose Your Seats</h3>
 
       <!-- seat control --> 
       <article id="movieSeatContainer" class="movie-seat-container">
@@ -128,11 +147,18 @@
         </table>
       </article>
 
-      <!-- button to nav to extras -->
-      <button onclick="onClickPostBooking()">Book!</button>
-      <!-- button to nav to confirmation (skip) -->
-      <button onclick="onClickExtras()">Get Some Snacks!</button>
-    </section>
+
+    <!-- Book movie button -->
+    <button class="main-button" onclick="onClickPostBooking()">
+      <h5>Book!</h5>
+    </button>
+
+    <!-- button to nav to confirmation (skip) -->
+    <button class="main-button" onclick="onClickExtras()">
+      <h5>Get Some Snacks!</h5>
+    </button>
+
+
   <footer id="footer">
     <p>2023</p>
   </footer>
