@@ -34,27 +34,43 @@
         </ul>
       </article>
 
+      <section class="split-container">
+        <article class="trailer">
+          <img src="your-image-url" alt="Image">
+        </article>
 
-      <!-- Cinema select (Please fix to integrate whatever you need to to get cinema names etc.)-->
-      <section class="dropdown">
-        <h4 class="dropdown-title">Choose Your cinema</h4>
-          <select class="dropdown-field">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-          </select>
-      </section>
+        <!-- Table of trailer and dropdowns-->
+        <table>
+          <tr>
+            <td>
+              <video width="320" height="240" controls>
+                <source src="your-video-source.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </td>
+            <td>
+              <section class="dropdown">
+                <h4 class="dropdown-title">Choose Your cinema</h4>
+              <select class="dropdown-field">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+               </select>
+              </section>
 
-      <!-- Email -->
+            <!-- Email -->
 
-      <section class="textfield">
-        <h4 class="dropdown-title">Enter Your Email</h4>
-          <article id="dropdownContainer"></article>
-          <article id="dropdownContainer">
-          <input type="email">
-          </article>
-      </section>
+              <section class="textfield">
+                <h4 class="dropdown-title">Enter Your Email</h4>
+                <article id="dropdownContainer"></article>
+                <article id="dropdownContainer">
+                <input type="email">
+                </article>
+              </section>
+            </td>
+          </tr>
+        </table>      
 
 
       <!--Heading-->

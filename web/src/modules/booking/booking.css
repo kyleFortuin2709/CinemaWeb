@@ -281,3 +281,12 @@ h5 {
   background-color: #2F2C44;
   color: #fff;
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+td {
+  padding: 0;
+}
