@@ -20,28 +20,38 @@
     </ul>
   </nav>
   <section id="confirmation">
-    <h1>It's Confirmed!</h1>
+    <h1 class="confirmation-text">It's Confirmed!</h1>
     
-    <section id="movie-details" class="movie-details">    
-      <img class="col" id="poster" alt="moviePoster">
-    </section>
-    <section class="details">
-      <h5 id="movieTitle"></h5>
-      <h5>Seats: <u id="bookingSeats"></u></h5>
-      <p id="movieDate"></p>
-      <p>Time: <u id="movieTime"></u></p>
+    <section class="movie-ticket">
+      <section id="movie-details">    
+        <img class="col" id="poster" alt="moviePoster">
+      </section>
+
+      <section class="details">
+        <p id="movieTitle"></p>
+        <section id="movieSeat">Seats: <br/><p id="bookingSeats"></p></section>
+        <section class="details-bottom">
+          <section id="movieDate"></section>
+          <aside id="movieTimeMain">Time: <br/><p id="movieStartTime"></p> - <p id="movieEndTime"></p></aside>
+        </section>
+      </section>
+
+      <section id="movie-details-side">
+        <img class="col" id="backdrop" alt="movieBackDrop">
+        <section id="details-side">
+          <p id="cinemaName"></p>
+          <p id="movieTitle1"></p>
+          <p>Total: <u id="bookingPrice"></u></p>
+          <h5>Seats: <u id="bookingSeats1"></u></h5>
+          <p id="movieDate1"></p>
+          <p id="movieStartTime1"></p> - <p id="movieEndTime1"></p>
+        </section>
+      </section>
+
+      <section id="barcode"></section>
     </section>
 
-    <section id="movie-details-side">    
-      <img class="col" id="backdrop" alt="movieBackDrop">
-    </section>
-      
-      <p id="cinemaName"></p>
-      <p id="movieTitle1"></p>
-      <p>Total: <u id="bookingPrice"></u></p>
-      <h5>Seats: <u id="bookingSeats1"></u></h5>
-      <p id="movieDate1"></p>
-      <p id="movieTime1"></p>
+    Your ticket will be sent to your email
   </section>
   <footer id="footer">
     <p>2023</p>
