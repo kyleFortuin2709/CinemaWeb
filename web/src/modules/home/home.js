@@ -52,7 +52,7 @@ function generateImages(data) {
 
 
 
-fetch(`http://localhost:8080/`, {
+fetch(`http://13.244.38.48:8080/`, {
 	method: 'GET',
 	headers: { "Content-Type": "application/json" }
 })
