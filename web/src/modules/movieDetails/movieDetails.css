@@ -6,11 +6,21 @@ td,p {
   font-size: 110%;
 }
 
+p {
+  display: unset;
+}
+
 .movieDetails {
   padding-left: 5%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
+
+#movie-details {
+  margin: 0px;
+}
+
 .col {
   width: 350px;
   height: 500px;
@@ -20,13 +30,58 @@ td,p {
   display: flex;
   flex-direction: column;
   padding-left: 2%;
-  margin-top: -2.5%;
+  /* margin-top: -2.5%; */
+}
+
+.details > #movieTitle {
+  margin: 0px;
+  padding-top: 15px;
+}
+
+.material-symbols-outlined {
+  display: inline;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+#movieRuntime {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+
+#movieRuntime > .material-symbols-outlined {
+  margin: 0px;
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 6px;
+  left: 5px;
+}
+
+#movieRuntime > #runtime {
+  line-height: 5px;
+  margin-left: 5px;
 }
 
 .subDetails {
-  flex-direction: row;
-  margin-top: -8%;
-  margin-bottom: 0%;
+  list-style: none;
+  display: table;
+  margin-left: 0px;
+  padding-left: 10px;
+}
+
+.subDetails > li {
+  display: table-row;
+}
+
+.subDetails > li > b {
+  display: table-cell;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  font-weight: normal;
 }
 
 .overview {
@@ -35,10 +90,21 @@ td,p {
 }
 
 .book {
-  margin-top: 2%;
-  width: 150px;
-  height: 80px;
+  width: 180px;
   font-size: 130%;
   border-radius: 10px;
   background-color: #6f60cf;
+  color: white;
+  padding: 10px;
+  display: inline;
+  position: relative;
+}
+
+.book > .material-symbols-outlined {
+  margin: 0px;
+  position: relative;
+  /* Adjust these values accordingly */
+  /* top: 6px; */
+  /* left: 5px; */
+  float: right;
 }
