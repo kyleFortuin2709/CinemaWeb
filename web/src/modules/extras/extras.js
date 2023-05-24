@@ -91,6 +91,9 @@ const submitExtras = () => {
     const url = `/confirmation?id=${bookingRef}`;
     window.location.href = url;
   })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 }
 
 fetch(`http://13.244.38.48:8080/extras`, {

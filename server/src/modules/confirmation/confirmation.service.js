@@ -37,7 +37,9 @@ const getOtherImage = (booking) => {
 const getBooking = (refNo) => {
   return booking.getConfirmationDetails(refNo)
     .then(details => {
+      console.log(details);
       const bookingDetail = details.find(() => true);
+      console.log(bookingDetail);
       let price = 0;
       let startDate = new Date(bookingDetail.startDateTime);
       let confirmation = {

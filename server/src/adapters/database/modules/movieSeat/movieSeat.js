@@ -21,6 +21,7 @@ module.exports.movieSeat = {
   },
   bookMovieSeats: (data) => {
     const conditions = data.seatIds.join(', ')
+    console.log(conditions);
     const statement = `
       UPDATE "MovieSeat"
         SET "booked" = 1

@@ -28,6 +28,7 @@ module.exports.bookingController = {
       bookMovieSeats(data),
       createBooking(data.email)
     ]).then(([movieSeats, booking])=> {
+      console.log('Movie seats', movieSeats);
       return createTickets({
         movieSeats,
         cinemaMovieId: data.cinemaMovieId,

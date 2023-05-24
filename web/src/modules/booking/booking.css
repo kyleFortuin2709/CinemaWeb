@@ -11,6 +11,7 @@
     display: grid;
     place-items: center; /* Align items vertically and horizontally at the center */
     height: 100vh; /* Set the height of the section to utilize the full viewport height */
+    margin-top: -15%;
   }
 
 .date-picker {
@@ -325,6 +326,9 @@ section .card-section {
   align-items: flex-start;
 }
 
+.section-title {
+  align-content: center;
+}
 
 section.dropdown {
   padding: 0px;

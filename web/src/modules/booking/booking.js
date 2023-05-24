@@ -233,7 +233,7 @@ function onClickExtras() {
     return postBooking()
     .then((data) => {
       console.log('Email saved:', bookingEmail);
-      window.location.href = `/confirmation?id=${data.refNo}`;
+      window.location.href = `/extras?id=${data.refNo}`;
     });
   }
 };

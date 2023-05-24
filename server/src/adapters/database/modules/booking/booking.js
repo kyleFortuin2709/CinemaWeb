@@ -79,7 +79,7 @@ module.exports.booking = {
         SELECT 
           "movieId"
         FROM CinemaMovie
-        WHERE "id" = t."bookingId"
+        WHERE "id" = t."cinemaMovieId"
       )
       WHERE b."refNo" = '${refNo}'
     `;
