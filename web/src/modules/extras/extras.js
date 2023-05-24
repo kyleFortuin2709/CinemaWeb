@@ -113,10 +113,10 @@ fetch(`http://13.244.38.48:8080/extras`, {
 
     const section = document.createElement('section')
     section.classList.add('details')
-		section.appendChild(createAddButton(id));
-  	section.appendChild(createAmount(id));
-		section.appendChild(createRemoveButton(id));
-		listItem.appendChild(section);
+    section.appendChild(createRemoveButton(id));
+    section.appendChild(createAmount(id));
+    section.appendChild(createAddButton(id));
+    listItem.appendChild(section);
     extraItems.appendChild(listItem);
     selectedItems.push({
       id: extra.id,
