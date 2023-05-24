@@ -46,6 +46,7 @@ p {
 
 #movie-details-side > #details-side > #cinemaName,
 #movie-details-side > #details-side > #movieTitle1,
+#movie-details-side > #details-side > #movieDate1, 
 #movie-details-side > #details-side > #moviePrice, 
 #movie-details-side > #details-side > #movieSeat1, 
 #movie-details-side > #details-side > #movieTime1 {
@@ -102,12 +103,53 @@ p {
     font-weight: normal ;
 }
 
+#movie-details-side > #details-side > #movieSeat1 {
+    transform: rotate(-90deg);
+    font-size: 12px;
+    position: relative;
+    padding: 5px;
+    margin: 0px;
+    height: 30px;
+    float: left;
+    color: white;
+    bottom: 145px;
+    left: 103px;
+    font-weight: normal ;
+}
+
+#movie-details-side > #details-side > #movieDate1 {
+    transform: rotate(-90deg);
+    font-size: 12px;
+    position: relative;
+    padding: 5px;
+    margin: 0px;
+    height: 18px;
+    float: left;
+    color: white;
+    bottom: 305px;
+    left: 47px;
+    font-weight: normal ;
+}
+
+#movie-details-side > #details-side > #movieTime1 {
+    transform: rotate(-90deg);
+    font-size: 12px;
+    position: relative;
+    padding: 5px;
+    margin: 0px;
+    height: 18px;
+    float: left;
+    color: white;
+    bottom: 515px;
+    left: 47px;
+    font-weight: normal ;
+}
+
 #movie-details > #poster, #movie-details-side > #backdrop {
     margin: 0px;
 }
 
 #movie-details-side {
-    background-color: blue;
     flex-direction: column;
 }
 
