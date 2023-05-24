@@ -175,6 +175,9 @@
 
   /* seat layout */
 
+
+  /* seat layout */
+
   
   .showcase {
     background-color: rgba(0, 0, 0, 0.1);
@@ -228,6 +231,25 @@
     color: #fff;
   }
 
+  .main-button-purple {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Updated alignment to center */
+    padding: 16px;
+    gap: 10px;
+    width: 212px;
+    height: 61px;
+    background: #2F2C44;
+    border: 1px solid #2F2C44;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    
+  }
+
   /* email */
   
   #dropdownContainer {
@@ -245,7 +267,9 @@
     margin-bottom: 0;
     font-family: 'Inter', sans-serif;
     font-size: 48px;
+    align-items: flex-start;
     padding-bottom: 50px;
+    width: 100%;
 }
 
 
@@ -268,7 +292,7 @@ h5 {
   border: 1px solid #2F2C44;
   border-radius: 4px;
   background-color: #2F2C44;
-  color: #fff;
+  color: #fff;text
 }
 
 #dropdownContainer {
@@ -288,6 +312,11 @@ section.textfield {
   padding: 0px;
 }
 
+section .card-section {
+  align-items: flex-start;
+}
+
+
 section.dropdown {
   padding: 0px;
 }
@@ -300,6 +329,26 @@ table {
 
 td {
   padding: 0;
+}
+
+.title-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+article .title-button{
+  width: 100%;
+  justify-content: space-between;
+}
+
+.inline-title {
+  margin-right: 10px;
+}
+
+.title-container {
+  padding-right: 10px;
 }
 
 /* Cards */
@@ -376,8 +425,4 @@ td {
   background-image: url('icon-url');
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.tableView {
-  margin-top: -15%;
 }
