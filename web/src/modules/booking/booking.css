@@ -1,3 +1,12 @@
+.banner {
+  text-align: center;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
+
 .vertical-section {
     display: grid;
     place-items: center; /* Align items vertically and horizontally at the center */
@@ -377,8 +386,8 @@ article .title-button{
 }
 
 .card-image {
-  width: 100%;
-  height: auto;
+  width: 300px;
+  height: 242px;
   border-radius: 4px;
   margin-bottom: 16px;
 }

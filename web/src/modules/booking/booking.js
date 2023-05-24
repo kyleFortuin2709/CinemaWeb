@@ -29,7 +29,7 @@ let showId;
 let seatIds = [];
 let bookingEmail;
 let data;
-
+let backdropPath;
 
 fetch(`http://13.244.38.48:8080/booking/movie/${movieId}`, {
   method: 'GET',
@@ -38,6 +38,9 @@ fetch(`http://13.244.38.48:8080/booking/movie/${movieId}`, {
   .then(response => response.json())
   .then(moviedata => {
     console.log(moviedata);
+    backdropPath = getPathUrl(moviedata.movie.backdropPath);
+    imageElement = document.getElementById("bannerImage");
+    imageElement.src = backdropPath;
     data = moviedata;
     generatePage();
   })
@@ -58,6 +61,9 @@ const getCinemaMovieId = () => {
   return movieDetail.cinemaMovieId;
 }
 
+function getPathUrl(path) {
+	return "https://image.tmdb.org/t/p/w500" + path
+}
 
 function generatePage() {
   data.shows.forEach((showTime) => {
