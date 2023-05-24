@@ -83,22 +83,22 @@ function generatePage() {
 
 function createDatePicker(date) {
   const values = date.split(" ");
-  listItem = document.createElement("li");
-  span1 = document.createElement("h2");
-  span2 = document.createElement("h2");
+  let listItem = document.createElement("li");
+  let item1 = document.createElement("h2");
+  let item2 = document.createElement("h2");
   parent = document.getElementById("dates");
   parent.appendChild(listItem);
   listItem.id = date
   addOnClickDate(listItem);
-  span1.innerHTML = values[0];
-  span2.innerHTML = values[1];
-  listItem.appendChild(span1);
-  listItem.appendChild(span2);
+  item1.innerHTML = values[0];
+  item2.innerHTML = values[1];
+  listItem.appendChild(item1);
+  listItem.appendChild(item2);
 }
 
 function createTimePicker(val, id) {
-  var listItem = document.createElement("li");
-  var parent = document.getElementById("times");
+  let listItem = document.createElement("li");
+  let parent = document.getElementById("times");
   parent.appendChild(listItem);
   listItem.id = id;
   console.log("id: " + id);
@@ -109,9 +109,9 @@ function createTimePicker(val, id) {
 
 function addOnClickTime(item) {
   item.addEventListener('click', function () {
-    var isActive = this.classList.contains('active');
+    let isActive = this.classList.contains('active');
 
-    var elements = Array.from(this.parentNode.children);
+    let elements = Array.from(this.parentNode.children);
     elements.forEach(function (el) {
       el.classList.remove('active');
     });
@@ -128,9 +128,9 @@ function addOnClickTime(item) {
 
 function addOnClickDate(item) {
   item.addEventListener('click', function () {
-    var isActive = this.classList.contains('active');
+    let isActive = this.classList.contains('active');
 
-    var elements = Array.from(this.parentNode.children);
+    let elements = Array.from(this.parentNode.children);
     elements.forEach(function (el) {
       el.classList.remove('active');
     });
