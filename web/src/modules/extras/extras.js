@@ -36,6 +36,7 @@ const createExtraPrice = (price, id) => {
 
 const createAddButton = (id) => {
   const addButton = document.createElement('button')
+    addButton.classList.add('btn-purple');
     addButton.classList.add('add');
     addButton.textContent = '+'
     addButton.addEventListener('click', () => {
@@ -58,6 +59,7 @@ const createAmount = (id) => {
 
 const createRemoveButton = (id) => {
   const removerButton = document.createElement('button')
+  removerButton.classList.add('btn-purple');
   removerButton.classList.add('remove');
   removerButton.textContent = '-'
   removerButton.addEventListener('click', () => {
