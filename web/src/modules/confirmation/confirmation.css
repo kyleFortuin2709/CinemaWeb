@@ -53,7 +53,9 @@ p {
     margin: 0px;
 }
 
-#movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieDate1, #movie-details-side > #details-side > #movieTime1 {
+#movie-details-side > #details-side > #movieSeat1, 
+#movie-details-side > #details-side > #movieDate1, 
+#movie-details-side > #details-side > #movieTime1 {
     font-size: 12px;
     display: inline;
 }
@@ -82,10 +84,23 @@ p {
     float: left;
     color: white;
     bottom: 410px;
-    left: -65px;
+    left: -55px;
     font-weight: bold;
 }
 
+#movie-details-side > #details-side > #moviePrice {
+    transform: rotate(-90deg);
+    font-size: 18px;
+    position: relative;
+    padding: 8px;
+    margin: 0px;
+    height: 20px;
+    float: left;
+    color: white;
+    bottom: 377px;
+    left: 75px;
+    font-weight: normal ;
+}
 
 #movie-details > #poster, #movie-details-side > #backdrop {
     margin: 0px;
