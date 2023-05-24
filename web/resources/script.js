@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-	console.log("hi");
 	const navigationPlaceholder = document.getElementById("navigationPlaceholder");
 	
 	const heading = document.createElement('h2');
@@ -34,4 +33,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	navigationPlaceholder.appendChild(heading);
 	navigationPlaceholder.appendChild(ul_list);
+
+    const footer = document.getElementById("footer");
+
+    const footer_p = document.createElement('p');
+    footer_p.setAttribute('class', 'material-symbols-outlined');
+    footer_p.textContent = 'copyright';
+    footer.appendChild(footer_p);
+    
+    const footer_p_r = document.createElement('p');
+    footer_p_r.textContent = '2023';
+    footer.appendChild(footer_p_r);
+
+
   });
