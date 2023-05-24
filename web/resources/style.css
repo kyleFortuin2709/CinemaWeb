@@ -67,7 +67,14 @@ footer {
   width: 100%;
   height: 8%;
   display: inline;
-} 
+}
+
+footer > p {
+  padding: relative;
+  display: inline;
+  margin: 0px;
+  padding-left: 10px;
+}
 
 footer > .material-symbols-outlined {
   margin: 0px;
