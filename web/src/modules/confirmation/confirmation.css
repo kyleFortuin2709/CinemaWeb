@@ -40,10 +40,12 @@ p {
 
 #movie-details-side {
     width: 23%;
-    height: 100%;
+    /* height: 100%; */
+    top: 100px;
 }
 
-#movie-details-side > #details-side > #moviePrice, #movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieTime1 {
+#movie-details-side > #details-side > #moviePrice, #movie-details-side > #details-side > #movieSeat1, #movie-details-side > #details-side > #movieTime1,
+#movie-details-side > #details-side > #cinemaNameMain {
     padding: 0px;
     margin: 0px;
 }
@@ -52,6 +54,23 @@ p {
     font-size: 12px;
     display: inline;
 }
+
+#movie-details-side > #details-side > #cinemaName {
+    transform: rotate(-90deg);
+    background: #54525D;
+    position: relative;
+    padding: 8px;
+    margin: 0px;
+    padding-right: 130px;
+    /* width: 200px; */
+    height: 20px;
+    float: left;
+    color: white;
+    /* line-height: 0.1; */
+    bottom: 330px;
+    left: -78px;
+}
+
 
 #movie-details > #poster, #movie-details-side > #backdrop {
     margin: 0px;
@@ -75,7 +94,7 @@ p {
 }
 
 #movie-details-side > #details-side {
-    transform: rotate(-90deg);
+    padding-top: 0px;
     /* padding: 0px; */
     /* margin: 0px; */
     margin-left: 0px;
@@ -154,7 +173,6 @@ p {
 .movie-ticket-info > .material-symbols-outlined {
     margin: 0px;
     position: relative;
-    /* Adjust these values accordingly */
     top: 6px;
     left: 5px;
 }
