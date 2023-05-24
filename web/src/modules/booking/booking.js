@@ -164,6 +164,17 @@ function saveEmail() {
   console.log('Email saved:', bookingEmail);
 }
 
+function validateEmail(email) {
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!regex.test(email)) {
+    throw new Error("Invalid email");
+  }
+  else {
+    return true;
+  }
+}
+
 
 // Seat click event for movie seat
 function addOnClickMovieSeat() {
@@ -189,22 +200,36 @@ function addOnClickMovieSeat() {
 function onClickPostBooking() {
   bookingEmail = document.getElementById('emailInput').value;
   cinemaMovieId = getCinemaMovieId();
-  return postBooking()
-  .then((data) => {
-    console.log('Email saved:', bookingEmail);
-    window.location.href = `/confirmation?id=${data.refNo}`;
-  });
+
+  if (!validateEmail(bookingEmail)) {
+    console.log(error.message);
+    return;
+  }
+  else{
+    return postBooking()
+    .then((data) => {
+      console.log('Email saved:', bookingEmail);
+      window.location.href = `/confirmation?id=${data.refNo}`;
+    });
+  }
 };
 
 function onClickExtras() {
   bookingEmail = document.getElementById('emailInput').value;
   cinemaMovieId = getCinemaMovieId();
-  return postBooking()
-  .then((data) => {
-    console.log('Email saved:', bookingEmail);
-    //post
-    window.location.href = `/extras?id=${data.refNo}`;
-  });
+
+  if (!validateEmail(bookingEmail)) {
+    console.log(error.message);
+    console.log("Email: " + bookingEmail)
+    return;
+  }
+  else{
+    return postBooking()
+    .then((data) => {
+      console.log('Email saved:', bookingEmail);
+      window.location.href = `/confirmation?id=${data.refNo}`;
+    });
+  }
 };
 
 function postBooking() {
