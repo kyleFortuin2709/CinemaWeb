@@ -27,10 +27,10 @@ module.exports.booking = {
         return response.recordset.find(() => true);
       });
   },
-  createBooking: () => {
+  createBooking: (email) => {
     const statement = `
       INSERT INTO "Booking"("email")
-      VALUES('mariusTestBooking@bookings.co.za')
+      VALUES('${email}')
       SELECT
         "id",
         "email",
@@ -52,8 +52,10 @@ module.exports.booking = {
         "seatRow",
         "seatNumber",
         "startDateTime",
+        "endDateTime",
         m."id" AS "movieId",
-        "apiMovieId"
+        "apiMovieId",
+        cin."name" AS "cinemaName"
       FROM Booking b
       JOIN Ticket t
       ON t."bookingId" = b."id"
@@ -63,6 +65,15 @@ module.exports.booking = {
       ON s."id" = ms."seatId"
       JOIN Shows sh
       ON sh."id" = ms."showId"
+      JOIN CinemaMovie cm
+      ON cm."id" = t."cinemaMovieId"
+      JOIN Cinema cin
+      ON cin."id" = (
+        SELECT
+          "cinemaId"
+        FROM CinemaComplex ccom
+        WHERE ccom."id" = cm."cinemaComplexId"
+      )
       JOIN Movie m
       ON m."id" = (
         SELECT 

@@ -4,6 +4,7 @@
   "scripts": {
     "start:server": "cross-env NODE_ENV=dev nodemon ./server/server.js",
     "start:web": "cross-env NODE_ENV=dev nodemon ./web/server.js",
+    "start:web:dep": "cross-env NODE_ENV=dep nodemon ./web/server.js",
     "start": "node server.js"
   },
   "dependencies": {

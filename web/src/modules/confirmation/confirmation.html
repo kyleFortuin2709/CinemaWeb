@@ -5,9 +5,10 @@
   <title>CinemaApp</title>
   <link rel="stylesheet" href="/resources/style.css">
   <link rel="stylesheet" href="/src/modules/confirmation/confirmation.css"">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -20,10 +21,45 @@
     </ul>
   </nav>
   <section id="confirmation">
-    confirmation ticket
+    <h1 class="confirmation-text">It's Confirmed!</h1>
+    
+    <section class="movie-ticket">
+      <section id="movie-details">    
+        <img class="col" id="poster" alt="moviePoster">
+      </section>
+
+      <section class="details">
+        <p id="movieTitle"></p>
+        <section id="movieSeat">Seats: <br/><p id="bookingSeats"></p></section>
+        <section class="details-bottom">
+          <section id="movieDate"></section>
+          <aside id="movieTimeMain">Time: <br/><p id="movieStartTime"></p> - <p id="movieEndTime"></p></aside>
+        </section>
+      </section>
+
+      <section id="movie-details-side">
+        <img class="col" id="backdrop" alt="movieBackDrop">
+        <section id="details-side">
+          <section id="cinemaName"></section>
+          <section id="movieTitle1"></section>
+          <section id="moviePrice">Total: <p id="bookingPrice"></p></section>
+          <section id="movieSeat1">Seats: <br/><p id="bookingSeats1"></p></section>
+          <section id="movieDate1"></section>
+          <section id="movieTime1"><p id="movieStartTime1"></p> - <p id="movieEndTime1"></p></section>
+        </section>
+      </section>
+      
+      <section id="barcode">
+        <img src="/resources/scan_bar.svg" />
+      </section>
+    </section>
+
+    <section class="movie-ticket-info">
+      <p class="material-symbols-outlined">info</p> <p class="info-text">Your ticket will be sent to your email</p>
+    </section>
   </section>
   <footer id="footer">
-    <p>2023</p>
+    <p class="material-symbols-outlined">copyright</p> 2023
   </footer>
   <script type="text/javascript" src="/src/modules/confirmation/confirmation.js"></script>
 </body>

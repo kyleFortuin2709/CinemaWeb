@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <meta http-equiv="Content-Script-Type" content="text/javascript">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   
   <body>
@@ -26,36 +27,23 @@
       </section>
       <section class="details">
         <h1 id="movieTitle"></h1>
-        <section class="subDetails">
-          <table cellSpacing="10">
-            <tr>
-              <td>Runtime</td>
-              <td>:</td>
-              <td id="runtime"></td>
-            </tr>
-            <tr>
-              <td>Genre</td>
-              <td>:</td>
-              <td id="genres"></td>
-            </tr>
-            <tr>
-              <td>Release</td>
-              <td>:</td>
-              <td id="release"></td>
-            </tr>
-            <tr>
-              <td>Language</td>
-              <td>:</td>
-              <td id="language"></td>
-            </tr>
-          </table>
+        <section id="movieRuntime">
+          <p class="material-symbols-outlined">schedule</p> <p id="runtime"></p>
         </section>
+
+
+        <ul class="subDetails">
+          <li id="movieGenre"><b>Genre</b>: </p> <p id="genres"></p></li>
+          <li id="movieRelease"><b>Release</b>: <p id="release"></p></li>
+          <li id="movieLanguage"><b>Language</b>: <p id="language"></p></li>
+        </ul>
+
         <p class="overview" id="overview"></p>
-        <button class="book" id="bookTicket">Book Tickets</button>
+        <button class="book" id="bookTicket"><p class="material-symbols-outlined">arrow_forward</p> Book Tickets</button>
       </section>
     </section>
     <footer id="footer">
-      <p>2023</p>
+      <p class="material-symbols-outlined">copyright</p> 2023
     </footer>
     <script type="text/javascript" src="/src/modules/movieDetails/movieDetails.js"></script>
     
