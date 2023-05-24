@@ -38,15 +38,6 @@ p {
   padding-top: 15px;
 }
 
-.material-symbols-outlined {
-  display: inline;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-}
-
 #movieRuntime {
   margin: 0px;
   padding: 0px;
@@ -92,12 +83,6 @@ p {
 .book {
   width: 180px;
   font-size: 130%;
-  border-radius: 10px;
-  background-color: #6f60cf;
-  color: white;
-  padding: 10px;
-  display: inline;
-  position: relative;
 }
 
 .book > .material-symbols-outlined {

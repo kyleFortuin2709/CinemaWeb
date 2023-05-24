@@ -36,6 +36,7 @@ const createExtraPrice = (price, id) => {
 
 const createAddButton = (id) => {
   const addButton = document.createElement('button')
+    addButton.classList.add('btn-purple');
     addButton.classList.add('add');
     addButton.textContent = '+'
     addButton.addEventListener('click', () => {
@@ -58,6 +59,7 @@ const createAmount = (id) => {
 
 const createRemoveButton = (id) => {
   const removerButton = document.createElement('button')
+  removerButton.classList.add('btn-purple');
   removerButton.classList.add('remove');
   removerButton.textContent = '-'
   removerButton.addEventListener('click', () => {
@@ -113,10 +115,10 @@ fetch(`http://13.244.38.48:8080/extras`, {
 
     const section = document.createElement('section')
     section.classList.add('details')
-		section.appendChild(createAddButton(id));
-  	section.appendChild(createAmount(id));
-		section.appendChild(createRemoveButton(id));
-		listItem.appendChild(section);
+    section.appendChild(createRemoveButton(id));
+    section.appendChild(createAmount(id));
+    section.appendChild(createAddButton(id));
+    listItem.appendChild(section);
     extraItems.appendChild(listItem);
     selectedItems.push({
       id: extra.id,
