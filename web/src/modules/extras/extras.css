@@ -93,3 +93,22 @@ button {
 footer {
   display: block;
 }
+
+article {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--navHeight);
+  color:var(--textColour);
+  margin-bottom: 16%;
+}
+
+button:hover {
+  transform: scale(1.3);
+  color: #000;
+}
+
+.snackCard:hover {
+  transform: scale(1.1);
+  background-color: #5851514d;
+}
