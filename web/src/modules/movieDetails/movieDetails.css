@@ -2,12 +2,14 @@ h1 {
   font-size: 300%;
 }
 
-td,p {
+p {
   font-size: 110%;
+  display: unset;
 }
 
-p {
-  display: unset;
+main {
+  display: flex;
+  flex-direction: column;
 }
 
 .movieDetails {
@@ -88,8 +90,19 @@ p {
 .book > .material-symbols-outlined {
   margin: 0px;
   position: relative;
-  /* Adjust these values accordingly */
-  /* top: 6px; */
-  /* left: 5px; */
   float: right;
+}
+
+article {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--navHeight);
+  color:var(--textColour);
+  margin-bottom: 16%;
+}
+
+button:hover {
+  transform: scale(1.05);
+  color: #000;
 }
