@@ -7,11 +7,17 @@
   height: auto;
 }
 
+h3 {
+  margin: 10px;
+  color: white;
+}
+
 .vertical-section {
     display: grid;
     place-items: center; /* Align items vertically and horizontally at the center */
     height: 100vh; /* Set the height of the section to utilize the full viewport height */
-    margin-top: -15%;
+    margin-top: 15%;
+    padding: 10px;
   }
 
 .date-picker {
