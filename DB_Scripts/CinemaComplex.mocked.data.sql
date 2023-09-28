@@ -501,7 +501,7 @@ GO
 INSERT INTO [dbo].[Booking]
            ([email], [refNo])
      VALUES
-           ('mariusTestBooking@bookings.co.za')
+           ('mariusTestBooking@bookings.co.za', '7D8AA441-8021-4D64-9A8F-3851154556CB')
 GO
 
 UPDATE [dbo].[MovieSeat]
