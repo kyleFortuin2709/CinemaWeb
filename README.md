@@ -52,7 +52,7 @@ Get Home
 `params : None`
 
 ## -Extras
-##3 METHOD : GET
+### METHOD : GET
 Get Extras 
 `endpoint : /extras`
 `params : None`
