@@ -15,13 +15,13 @@
 
 ## API TESTING SCOPE
 
-# Booking
-## METHOD : GET
+## Booking
+### METHOD : GET
 Get Movie Bookings
 `endpoint : /booking/movie/:id`
 `params : number id`
 
-## METHOD : POST
+### METHOD : POST
 Add Movie Booking
 `endpoint : /booking`
 `params : object body{
@@ -33,31 +33,31 @@ Add Movie Booking
     email: string
   }`
 
-# Movie Details
-## METHOD : GET
+## Movie Details
+### METHOD : GET
 Get Movie Details
 `endpoint : /movie/:movieId/details`
 `params : number movieId`
 
-# Confirmation
-## METHOD : GET
+## Confirmation
+### METHOD : GET
 Get Confirmation
 `endpoint : /confirmation/:bookingRef`
 `params : number bookingRef`
 
-# Home 
-## METHOD : GET
+## Home 
+### METHOD : GET
 Get Home
 `endpoint : /extras`
 `params : None`
 
-# Extras
-## METHOD : GET
+## Extras
+##3 METHOD : GET
 Get Extras 
 `endpoint : /extras`
 `params : None`
 
-## METHOD : POST 
+### METHOD : POST 
 Add extras
 `endpoint : /`
 `params : object body {
