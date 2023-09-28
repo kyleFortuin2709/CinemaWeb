@@ -499,7 +499,7 @@ INSERT INTO [MovieSeat]
 GO
 
 INSERT INTO [dbo].[Booking]
-           ([email])
+           ([email], [refNo])
      VALUES
            ('mariusTestBooking@bookings.co.za')
 GO
