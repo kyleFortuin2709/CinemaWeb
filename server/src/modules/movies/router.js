@@ -12,6 +12,9 @@ moviesRouter.get('/:id/details',(req, res, next) => {
     .then(result => {
       res.status(200).json(result)
     })
+    .catch((error) => {
+      res.status(404).json(error)
+    })
 })
 
 module.exports = {

@@ -11,6 +11,9 @@ confirmationRouter.get('/:refNo', (req, res, next) => {
     .then(results => {
       return res.status(200).json(results)
     })
+    .catch((error)=> {
+      return res.status(400).send()
+    })
 })
 
 module.exports = {

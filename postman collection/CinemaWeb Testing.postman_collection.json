@@ -1,0 +1,842 @@
+{
+	"info": {
+		"_postman_id": "95918d54-85ed-4587-b826-6240bd097f20",
+		"name": "CinemaWeb Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15763040",
+		"_collection_link": "https://lunar-station-552623.postman.co/workspace/CinemaWeb~7fb0bf4a-a5d9-4743-867b-e1e8f9236780/collection/15763040-95918d54-85ed-4587-b826-6240bd097f20?action=share&source=collection_link&creator=15763040"
+	},
+	"item": [
+		{
+			"name": "Landing / Home page",
+			"item": [
+				{
+					"name": "Landing / Page endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema = {\r",
+									"    'type': 'object',\r",
+									"    'properties': {\r",
+									"        'filters' : {\r",
+									"            'type': 'object',\r",
+									"            'properties': {\r",
+									"                'genres': {\r",
+									"                    'type': 'array',\r",
+									"                    'items': {\r",
+									"                        'type': 'string'\r",
+									"                    }\r",
+									"                },\r",
+									"                'shows': {\r",
+									"                    'type': 'array',\r",
+									"                    'items': {\r",
+									"                        'type': 'string'\r",
+									"                    }\r",
+									"                }\r",
+									"            },\r",
+									"            'required': ['genres', 'shows']\r",
+									"        },\r",
+									"        'bannerData': {\r",
+									"            'type': 'array',\r",
+									"            'items': {\r",
+									"                'type': 'object',\r",
+									"                'properties': {\r",
+									"                    'backdropPath': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'genres': {\r",
+									"                        'type': 'array',\r",
+									"                        'items': {\r",
+									"                            'type': 'object',\r",
+									"                            'properties': {\r",
+									"                                'id': {\r",
+									"                                    'type': 'integer'\r",
+									"                                },\r",
+									"                                'name': {\r",
+									"                                    'type': 'string'\r",
+									"                                },\r",
+									"                            },\r",
+									"                            'required': ['id', 'name']\r",
+									"                        }\r",
+									"                    },\r",
+									"                    'runtime': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'posterPath': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'apiMovieId': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'movieId': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'startDate': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'endDate': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                },\r",
+									"                'required': [\r",
+									"                    'backdropPath',\r",
+									"                    'genres',\r",
+									"                    'runtime',\r",
+									"                    'posterPath',\r",
+									"                    'apiMovieId',\r",
+									"                    'movieId',\r",
+									"                    'startDate',\r",
+									"                    'endDate'\r",
+									"                ]\r",
+									"            }\r",
+									"        },\r",
+									"        'nowShowingData': {\r",
+									"            'type': 'array',\r",
+									"            'items': {\r",
+									"                'type': 'object',\r",
+									"                'properties': {\r",
+									"                    'backdropPath': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'genres': {\r",
+									"                        'type': 'array',\r",
+									"                        'items': {\r",
+									"                            'type': 'object',\r",
+									"                            'properties': {\r",
+									"                                'id': {\r",
+									"                                    'type': 'integer'\r",
+									"                                },\r",
+									"                                'name': {\r",
+									"                                    'type': 'string'\r",
+									"                                },\r",
+									"                            },\r",
+									"                            'required': ['id', 'name']\r",
+									"                        }\r",
+									"                    },\r",
+									"                    'runtime': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'posterPath': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'apiMovieId': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'movieId': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'startDate': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'endDate': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                },\r",
+									"                'required': [\r",
+									"                    'backdropPath',\r",
+									"                    'genres',\r",
+									"                    'runtime',\r",
+									"                    'posterPath',\r",
+									"                    'apiMovieId',\r",
+									"                    'movieId',\r",
+									"                    'startDate',\r",
+									"                    'endDate'\r",
+									"                ]\r",
+									"            }\r",
+									"        },\r",
+									"        'comingSoonData': {\r",
+									"            'type': 'array',\r",
+									"            'items': {\r",
+									"                'type': 'object',\r",
+									"                'properties': {\r",
+									"                    'backdropPath': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'genres': {\r",
+									"                        'type': 'array',\r",
+									"                        'items': {\r",
+									"                            'type': 'object',\r",
+									"                            'properties': {\r",
+									"                                'id': {\r",
+									"                                    'type': 'integer'\r",
+									"                                },\r",
+									"                                'name': {\r",
+									"                                    'type': 'string'\r",
+									"                                },\r",
+									"                            },\r",
+									"                            'required': ['id', 'name']\r",
+									"                        }\r",
+									"                    },\r",
+									"                    'runtime': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'posterPath': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'apiMovieId': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'movieId': {\r",
+									"                        'type': 'integer'\r",
+									"                    },\r",
+									"                    'startDate': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                    'endDate': {\r",
+									"                        'type': 'string'\r",
+									"                    },\r",
+									"                },\r",
+									"                'required': [\r",
+									"                    'backdropPath',\r",
+									"                    'genres',\r",
+									"                    'runtime',\r",
+									"                    'posterPath',\r",
+									"                    'apiMovieId',\r",
+									"                    'movieId',\r",
+									"                    'startDate',\r",
+									"                    'endDate'\r",
+									"                ]\r",
+									"            }\r",
+									"        },\r",
+									"    },\r",
+									"    'required' : [\r",
+									"        'filters', 'bannerData', 'nowShowingData', 'comingSoonData'\r",
+									"    ]\r",
+									"}\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Landing Page response 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response schema\", () => {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Banner Data array not be empty\", function () {\r",
+									"    pm.expect(jsonData.bannerData).not.be.empty\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Now Showing Data array not be empty\", function () {\r",
+									"    pm.expect(jsonData.nowShowingData).not.be.empty\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Coming Soon Data array not be empty\", function () {\r",
+									"    pm.expect(jsonData.comingSoonData).not.be.empty\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "GetMovieBookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify register check returns a 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/booking/movie/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking",
+								"movie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddMovieBooking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var item = pm.response.json();\r",
+									"pm.test(\"Verify register check returns a 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify booking reference number property has been returned\", function () {\r",
+									"    pm.expect(item).to.have.property(\"refNo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify booking reference number is correct type\", function () {\r",
+									"    pm.expect(item.refNo).to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify booking reference number has value\", function () {\r",
+									"    pm.expect(item.refNo).length.greaterThan(0);\r",
+									"    pm.expect(item.refNo).length.lessThan(50);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"cinemaMovieId\": 1,\r\n    \"movie\": 1,\r\n    \"date\": \"Thu 11\",\r\n    \"showId\": 1,\r\n    \"seatIds\": [1],\r\n    \"email\": \"test@email.co.za\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Confirmation",
+			"item": [
+				{
+					"name": "getConfirmation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"uuid\", \"3B080B4C-DFD1-4E5B-9ABC-D6B7E707F77\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Confirmation Endpoint response\", function () {\r",
+									"    pm.response.to.have.status('Bad Request');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.response.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/confirmation/{{uuid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"confirmation",
+								"{{uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getConfirmation valid uuid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"uuid\", \"3B080B4C-DFD1-4E5B-9ABC-D6B7E707F774\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Confirmation Endpoint response 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.response.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the API response structure and values\", function () {\r",
+									"    var item = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"Movie ID is populated\", function () {\r",
+									"        pm.expect(item).to.have.property('apiMovieId');\r",
+									"        pm.expect(item.apiMovieId).to.be.a('number');\r",
+									"        pm.expect(item).to.have.property('movieId');\r",
+									"        pm.expect(item.movieId).to.be.a('number');\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Cinema Name is populated\", function () {\r",
+									"        pm.expect(item).to.have.property('cinemaName');\r",
+									"        pm.expect(item.cinemaName).to.be.equal('Cinema 1');\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Item Price is populated\", function () {\r",
+									"        pm.expect(item).to.have.property('price');\r",
+									"        pm.expect(item.price).to.be.a('string');\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Item seats is populated\", function () {\r",
+									"        pm.expect(item).to.have.property('seats');\r",
+									"        pm.expect(item.seats).to.be.an('array');\r",
+									"        pm.expect(item.seats).to.have.length(1);\r",
+									"\r",
+									"    });\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/confirmation/{{uuid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"confirmation",
+								"{{uuid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie Details",
+			"item": [
+				{
+					"name": "MovieDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has required fields\", function () {\r",
+									"    pm.response.to.have.jsonBody('runTime');\r",
+									"    pm.response.to.have.jsonBody('apiMovieId');\r",
+									"    pm.response.to.have.jsonBody('genres');\r",
+									"    pm.response.to.have.jsonBody('title');\r",
+									"    pm.response.to.have.jsonBody('posterPath');\r",
+									"    pm.response.to.have.jsonBody('language');\r",
+									"    pm.response.to.have.jsonBody('release');\r",
+									"    pm.response.to.have.jsonBody('overview');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"RunTime format includes 'hour(s)' and 'min(s)' (case insensitive)\", function () {\r",
+									"    const runTime = pm.response.json().runTime;\r",
+									"    pm.expect(runTime).to.match(/^\\d+ (hour|hours) \\d+ (min|mins)?$/i);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"RunTime is a string in the 'X hour(s) X min(s)' format (case insensitive)\", function () {\r",
+									"    const runTime = pm.response.json().runTime;\r",
+									"    pm.expect(runTime).to.match(/^\\d+ (hour|hours) \\d+ (min|mins)?$/i);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"apiMovieId is a positive number\", function () {\r",
+									"    const apiMovieId = pm.response.json().apiMovieId;\r",
+									"    pm.expect(apiMovieId).to.be.a('number');\r",
+									"    pm.expect(apiMovieId).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Genres is a string containing genre(s)\", function () {\r",
+									"    const genres = pm.response.json().genres;\r",
+									"    pm.expect(genres).to.be.a('string');\r",
+									"    pm.expect(genres).to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Genres format includes genre(s) separated by slashes\", function () {\r",
+									"    const genres = pm.response.json().genres;\r",
+									"    pm.expect(genres).to.match(/^[\\w\\s]+(?: \\/ [\\w\\s]+)*$/);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Title is not empty\", function () {\r",
+									"    const title = pm.response.json().title;\r",
+									"    pm.expect(title).to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"PosterPath is not empty\", function () {\r",
+									"    const posterPath = pm.response.json().posterPath;\r",
+									"    pm.expect(posterPath).to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Language is a string\", function () {\r",
+									"    const language = pm.response.json().language;\r",
+									"    pm.expect(language).to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Release year is a valid 4-digit year\", function () {\r",
+									"    const releaseYear = pm.response.json().release;\r",
+									"    pm.expect(releaseYear).to.match(/^\\d{4}$/);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Overview is not empty\", function () {\r",
+									"    const overview = pm.response.json().overview;\r",
+									"    pm.expect(overview).to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Overview length is within a reasonable range\", function () {\r",
+									"    const overview = pm.response.json().overview;\r",
+									"    pm.expect(overview.length).to.be.within(50, 500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movie/1/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movie",
+								"1",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MovieDetails404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Error handling testy things\r",
+									"\r",
+									"pm.test(\"Returns 404 Not Found for Invalid movieId\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movie/100/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movie",
+								"100",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Extras",
+			"item": [
+				{
+					"name": "Extras get endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema = {\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"      \"id\": { \"type\": \"number\" },\r",
+									"      \"name\": { \"type\": \"string\" },\r",
+									"      \"price\": { \"type\": \"number\" },\r",
+									"      \"imagePath\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"id\", \"name\", \"price\", \"imagePath\"]\r",
+									"  }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Extras Endpoint response 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response schema\", () => {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/extras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"extras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Extras post endpoint (no values)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"extras\": { \"type\": \"string\" },\r",
+									"        \"bookingRef\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"extras\", \"bookingRef\"]\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Extras Endpoint response 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response schema\", () => {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test with purchasedItems (with items)\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"    var expectedResponse = {\r",
+									"        extras: \"no items\",\r",
+									"        bookingRef: \"0B517FDC-66CD-4F9E-9864-768D2DA9E856\"\r",
+									"    };\r",
+									"\r",
+									"    pm.response.to.have.jsonBody(expectedResponse);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "mode",
+								"value": "cors",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"purchasedItems\":[],\"bookingRef\":\"0B517FDC-66CD-4F9E-9864-768D2DA9E856\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/extras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"extras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Extras post endpoint (with values)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"extras\": { \"type\": \"string\" },\r",
+									"        \"bookingRef\": { \"type\": \"string\" }\r",
+									"    },\r",
+									"    \"required\": [\"extras\", \"bookingRef\"]\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Extras Endpoint response 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response schema\", () => {\r",
+									"    pm.response.to.have.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test with purchasedItems (with items)\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"    var expectedResponse = {\r",
+									"        extras: \"processed\",\r",
+									"        bookingRef: \"0B517FDC-66CD-4F9E-9864-768D2DA9E856\"\r",
+									"    };\r",
+									"\r",
+									"    pm.response.to.have.jsonBody(expectedResponse);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "mode",
+								"value": "cors",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"purchasedItems\":[{\"id\":2,\"price\":35,\"name\":\"3D Glasses\",\"selected\":2}],\"bookingRef\":\"3B080B4C-DFD1-4E5B-9ABC-D6B7E707F774\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/extras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"extras"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "uuid",
+			"value": ""
+		}
+	]
+}
